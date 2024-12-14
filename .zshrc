@@ -84,6 +84,7 @@ plugins=(
   zsh-autosuggestions
 )
 bindkey '^ ' autosuggest-accept
+bindkey -s '^[g' "bash ~/myScripts/gitacp.sh^M"
 
 source $ZSH/oh-my-zsh.sh
 
