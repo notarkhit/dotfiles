@@ -1,0 +1,11 @@
+*
+!.gitignore
+!.zshrc
+!.bashrc
+!myScripts/**/*
+!misc/**/*
+!.config/ 
+!.config/hypr/**/*
+!.config/kitty/**/*
+!.config/nvim/**/*
+!.config/waybar/**/*

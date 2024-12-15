@@ -5,9 +5,9 @@ status=$(git status -s)
 if [ ! -z "$status" ]; then
     diff="$(git diff)"
     if [ ! -z "$diff" ]; then
-        echo "$diff" | bat
+        git diff --stat | bat
     else
-        git status | bat
+        echo $status | bat
     fi
     read -e -p "message: " message
     read -e -p "Confirm (Y|n):- " confirm
