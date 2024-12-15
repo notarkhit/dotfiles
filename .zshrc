@@ -19,6 +19,8 @@ export PATH="$PATH:/home/$USER/.local/share/pipx/venvs/waypaper/bin/"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -82,6 +84,8 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
   git
   zsh-autosuggestions
+  #syntax highlighting must be last
+  zsh-syntax-highlighting
 )
 bindkey '^ ' autosuggest-accept
 bindkey -s '^[g' "bash ~/myScripts/gitacp.sh^M"
@@ -134,8 +138,10 @@ alias cdh="cd ~"
 alias lf="yazi"
 alias ranger="yazi"
 alias nigger="poweroff"
+alias hconf="nvim ~/.config/hypr/hyprland.conf"
+
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 source <(fzf --zsh)
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
