@@ -68,7 +68,7 @@
   // === Modules ===
 
   "custom/ws": {
-    "on-click":"~/.local/share/pipx/venvs/waypaper/bin/waypaper",
+    "on-click":"",
     "format": "  ",
     "tooltip": false,
     "min-length": 3,
