@@ -137,7 +137,6 @@ alias ohmyzsh="mate ~/.oh-my-zsh"
 alias cdh="cd ~"
 alias lf="yazi"
 alias ranger="yazi"
-alias nigger="poweroff"
 alias hconf="nvim ~/.config/hypr/hyprland.conf"
 
 
