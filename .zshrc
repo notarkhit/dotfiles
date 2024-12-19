@@ -138,7 +138,7 @@ alias cdh="cd ~"
 alias lf="yazi"
 alias ranger="yazi"
 alias hconf="nvim ~/.config/hypr/hyprland.conf"
-
+alias nigger="sudo brightnessctl 'asus::kbd_backlight' s 0 && brightnessctl s 0"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
