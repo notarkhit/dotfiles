@@ -23,7 +23,7 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
+# a theme from this variable instead of looking in $/themes/
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
@@ -138,7 +138,8 @@ alias cdh="cd ~"
 alias lf="yazi"
 alias ranger="yazi"
 alias hconf="nvim ~/.config/hypr/hyprland.conf"
-alias nigger="sudo brightnessctl 'asus::kbd_backlight' s 0 && brightnessctl s 0"
+alias cat="bat"
+
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
