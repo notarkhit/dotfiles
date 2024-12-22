@@ -1,0 +1,9 @@
+configuration {
+    show-icons:      true;
+    display-drun:    "";
+    disable-history: false;
+}
+
+
+
+@theme "/home/notarkhit/.config/rofi/themes/dracula-theme.rasi"

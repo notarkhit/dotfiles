@@ -29,3 +29,6 @@
 
 !.config/fastfetch/
 !.config/fastfetch/**/*
+
+!.config/rofi/
+!.config/rofi/**/*
