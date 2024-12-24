@@ -6,4 +6,8 @@ configuration {
 
 
 
-@theme "/home/notarkhit/.config/rofi/themes/dracula-theme.rasi"
+//@theme "/home/notarkhit/.config/rofi/themes/dracula-theme.rasi"
+
+//@theme "/home/notarkhit/.config/rofi/themes/nord.rasi"
+
+@theme "/home/notarkhit/.config/rofi/themes/rounded-nord-dark.rasi"
