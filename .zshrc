@@ -12,7 +12,6 @@ fi
 export ZSH="$HOME/.oh-my-zsh"
 
 export PATH="/home/$USER/anaconda3/bin/:$PATH"
-export PATH="$PATH:/home/$USER/.local/share/pipx/venvs/waypaper/bin/"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
