@@ -138,6 +138,7 @@ alias lf="yazi"
 alias ranger="yazi"
 alias hconf="nvim ~/.config/hypr/hyprland.conf"
 alias cat="bat"
+alias mannnn="man nnn"
 alias nvfix="rm ~/.local/ -rf"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
