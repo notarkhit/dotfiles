@@ -50,6 +50,8 @@
   ],
 
   "modules-right": [
+    "sni-tray",             // system tray 
+
     "custom/media",         // media info
 
     "custom/left6",
@@ -471,3 +473,11 @@
     "tooltip": false
   }
 }
+
+"sni-tray": {
+    "icon-size": 24,          // Adjust the size of the tray icons
+    "tooltip": true,          // Show tooltips for tray icons
+    "spacing": 5,             // Space between icons
+    "on-click": "left-click"  // Default click behavior
+}
+
