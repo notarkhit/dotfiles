@@ -143,6 +143,7 @@ alias hconf="nvim ~/.config/hypr/hyprland.conf"
 alias cat="bat"
 alias mannnn="man nnn"
 alias nvfix="rm ~/.local/ -rf"
+alias tt="toipe"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
