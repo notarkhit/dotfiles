@@ -885,6 +885,7 @@ require("lazy").setup({
 			require("nord").setup({})
 			vim.cmd.colorscheme("nord")
 		end,
+		-- NOTE: nord theme end
 	},
 
 	-- Highlight todo, notes, etc in comments
