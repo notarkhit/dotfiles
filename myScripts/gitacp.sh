@@ -5,21 +5,26 @@ status=$(git status -s)
 if [ ! -z "$status" ]; then
     diff="$(git diff)"
     if [ ! -z "$diff" ]; then
-        git diff --stat | bat
+        git diff | bat
     else
-        echo $status | bat
+        git status | bat
     fi
     read -e -p "message: " message
-    read -e -p "Confirm (Y|n):- " confirm
+    read -e -p "Confirm Push (Y|n):- " confirm
 
     if [[ "$confirm" == "y" ]] || [[ "$confirm" == "Y" ]] || [[ "$confirm" == "" ]]; then
-        git add . && status=$(git status -s) && git commit -m "$message" -m "$status" && git push -u origin main
+        git add . && \
+        git commit -m "$message" -m "$(git diff --stat)" && \
+        if [[ -z $1 ]]; then
+            git push -u origin main
+        else
+            git push -u origin ${1}
+        fi
     else
-        echo "Git push process has been cancelled."
-        echo "See Ya..."
+        echo "CANCELING THE GIT PUSH PROCESS..."
     fi
-
 else
-    echo "Nothing to commit." | bat
+    echo -e "\e[31mNOTHING TO COMMIT.\e[0m"
 fi
 exit
+
