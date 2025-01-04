@@ -230,7 +230,7 @@ vim.opt.rtp:prepend(lazypath)
 -- NOTE: Here is where you install your plugins.
 require("lazy").setup({
 	-- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
-	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
+	-- "tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 
 	-- NOTE: Plugins can also be added by using a table,
 	-- with the first argument being the link and the following
@@ -640,11 +640,21 @@ require("lazy").setup({
 					-- capabilities = {},
 					settings = {
 						Lua = {
-							completion = {
-								callSnippet = "Replace",
+							runtime = {
+								version = "LuaJIT", -- Set the Lua version (e.g., 'Lua5.1', 'LuaJIT', etc.)
+								path = vim.split(package.path, ";"), -- Include the current package path
 							},
-							-- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-							-- diagnostics = { disable = { 'missing-fields' } },
+							diagnostics = {
+								enable = true,
+								globals = { "vim" }, -- Enable globals like vim in the diagnostics
+							},
+							workspace = {
+								library = vim.api.nvim_get_runtime_file("", true), -- Include runtime files in workspace
+								checkThirdParty = false, -- Disable third-party library checks
+							},
+							telemetry = {
+								enable = false, -- Disable telemetry if you don't want to send data
+							},
 						},
 					},
 				},
@@ -664,6 +674,8 @@ require("lazy").setup({
 			vim.list_extend(ensure_installed, {
 				"stylua", -- Used to format Lua code
 				"pyright",
+				"lua-language-server",
+				"clangd",
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
@@ -1035,3 +1047,7 @@ vim.g.clipboard = {
 	},
 	cache_enabled = 0,
 }
+
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
