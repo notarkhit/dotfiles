@@ -676,6 +676,7 @@ require("lazy").setup({
 				"pyright",
 				"lua-language-server",
 				"clangd",
+				"bashls",
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
