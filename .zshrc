@@ -148,3 +148,8 @@ alias tt="toipe"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 source <(fzf --zsh)
 
+# change directories with yazi !!
+
+function cd() {
+	builtin cd "$@" && print -Pn "Dir changed to %~"
+}
