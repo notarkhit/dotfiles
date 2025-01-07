@@ -156,6 +156,7 @@ alias nvfix="rm ~/.local/ -rf"
 alias tt="toipe"
 alias ls="eza --icons always"
 alias asdf="exit"
+alias yazi="y"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
