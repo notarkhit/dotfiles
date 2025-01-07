@@ -35,3 +35,7 @@
 
 !.config/swappy/
 !.config/swappy/**/*
+
+!.config/nwg-look/
+!.config/nwg-look/**/*
+
