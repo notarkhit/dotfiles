@@ -126,7 +126,7 @@ function preexec(){
 
 # yazi shell wrapper
 
-function y() {
+function yy() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
 	yazi "$@" --cwd-file="$tmp"
 	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
@@ -135,7 +135,7 @@ function y() {
 	rm -f -- "$tmp"
 }
 
-# Set personal aliases, overriding those provided by Oh My Zsh libs,
+# Set personal al/iases, overriding those provided by Oh My Zsh libs,
 # plugins, and themes. Aliases can be placed here, though Oh My Zsh
 # users are encouraged to define aliases within a top-level file in
 # the $ZSH_CUSTOM folder, with .zsh extension. Examples:
@@ -159,7 +159,6 @@ alias nvfix="rm ~/.local/ -rf"
 alias tt="toipe"
 alias ls="eza --icons always"
 alias asdf="exit"
-alias yazi="y"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
