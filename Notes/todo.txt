@@ -1,0 +1,5 @@
+collect ir codes
+
+make UI/UX in figma 
+
+make android app 
