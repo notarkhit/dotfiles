@@ -106,8 +106,9 @@ setaA == setB
 ## set operations
 
 - union '|' operator
-- intersection '' operator
+- intersection '&' operator
 - difference '-' operator
-- symmetric difference '' operator
+- symmetric difference '^' operator
+
 
 
