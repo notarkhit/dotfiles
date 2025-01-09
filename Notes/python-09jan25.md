@@ -67,6 +67,7 @@ toopal = leesht
 
 location = {
     (23.4, 42.5):'contonment front gate', 
+    (23.9, 23.4):'contonment back gate', 
 }
 
 ```
