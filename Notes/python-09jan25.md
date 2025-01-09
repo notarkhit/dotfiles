@@ -87,5 +87,19 @@ location[(21.32, 46.67): 'bull street']
 setA = {1,2,3,4}
 setB = {3,2,1,4}
 setaA == setB
+```
+
+- '<' can be used to check subset
+- '<=' can be used to check proper subset
+- '>' can be used to check superset
+
+```python
+2 in setA
+#True
+
+2 < a
+2<= a
 #True
 ```
+
+
