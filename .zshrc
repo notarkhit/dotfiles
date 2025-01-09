@@ -157,7 +157,7 @@ alias cat="bat"
 alias mannnn="man nnn"
 alias nvfix="rm ~/.local/ -rf"
 alias tt="toipe"
-alias ls="eza --icons always"
+alias ls="eza --icons always --total-size --hyperlink"
 alias asdf="exit"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
