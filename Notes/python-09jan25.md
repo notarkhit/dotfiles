@@ -61,8 +61,8 @@ toopal = leesht
 - uses key: value pairs
 - binary search
 - elements can be accessed by using keys
-- dictionary is mutable
-
+- dictionaries are mutable
+- 
 
 
 
