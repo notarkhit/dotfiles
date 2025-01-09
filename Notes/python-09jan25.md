@@ -111,3 +111,10 @@ setaA == setB
 - symmetric difference '^' operator
 
 ---
+```python
+setA ^ setB
+setA.union(SetB)
+setA.intersection(setB)
+
+```
+
