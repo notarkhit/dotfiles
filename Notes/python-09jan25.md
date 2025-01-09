@@ -56,4 +56,5 @@ toopal = leesht
 
 ## Dictionary
 
-
+- uses key: value pairs
+- 
