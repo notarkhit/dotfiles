@@ -81,4 +81,11 @@ location[(21.32, 46.67): 'bull street']
 ## set 
 
 - unordered collection of elements
-
+- like a python dictionary without keys
+- order doesnt matter 
+```python
+setA = {1,2,3,4}
+setB = {3,2,1,4}
+setaA == setB
+#True
+```
