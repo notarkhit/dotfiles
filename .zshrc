@@ -135,6 +135,8 @@ function yy() {
 	rm -f -- "$tmp"
 }
 
+eval $(thefuck --alias)
+
 # Set personal al/iases, overriding those provided by Oh My Zsh libs,
 # plugins, and themes. Aliases can be placed here, though Oh My Zsh
 # users are encouraged to define aliases within a top-level file in
@@ -157,7 +159,8 @@ alias cat="bat"
 alias mannnn="man nnn"
 alias nvfix="rm ~/.local/ -rf"
 alias tt="toipe"
-alias ls="eza --icons always --total-size --hyperlink"
+alias ls="eza --icons always --hyperlink"
+alias lsl="eza --icons always --total-size --hyperlink"
 alias asdf="exit"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
