@@ -78,5 +78,7 @@ location = {
 location[(21.32, 46.67): 'bull street']
 
 ```
+## set 
 
+- unordered collection of elements
 
