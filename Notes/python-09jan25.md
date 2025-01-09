@@ -101,5 +101,13 @@ setaA == setB
 2<= a
 #True
 ```
+---
+
+## set operations
+
+- union '|' operator
+- intersection '' operator
+- difference '-' operator
+- symmetric difference '' operator
 
 
