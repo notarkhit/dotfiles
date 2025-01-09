@@ -72,5 +72,12 @@ location = {
 
 ```
 
+- to add new elements in a dictionary
+```python
+
+location[(21.32, 46.67): 'bull street']
+
+```
+
 
 
