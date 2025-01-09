@@ -62,7 +62,14 @@ toopal = leesht
 - binary search
 - elements can be accessed by using keys
 - dictionaries are mutable
-- 
+
+```python
+
+location = {
+    (23.4, 42.5):'contonment front gate', 
+}
+
+```
 
 
 
