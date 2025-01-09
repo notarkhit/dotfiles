@@ -42,7 +42,7 @@ a,b,c = tupleOne
 
 - lists and tuples can be converted interchangably
 
-```
+```python
 toopal = (1, 2, 3, 4)
 
 leesht = toopal
@@ -56,5 +56,12 @@ toopal = leesht
 
 ## Dictionary
 
+- ordering of elements is arbitrary
+- it's stored in alphabetical order
 - uses key: value pairs
-- 
+- binary search
+- elements can be accessed by using keys
+- dictionary is mutable
+
+
+
