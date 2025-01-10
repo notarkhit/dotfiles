@@ -167,5 +167,4 @@ alias rced="nvim ~/.zshrc"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 source <(fzf --zsh)
 
-
 export GPG_TTY=$(tty)
