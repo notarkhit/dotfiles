@@ -159,7 +159,7 @@ alias cat="bat"
 alias nvfix="rm ~/.local/ -rf"
 alias tt="toipe"
 alias ls="eza --icons always --hyperlink"
-alias lsl="eza --icons always --total-size --hyperlink"
+alias lsl="eza --icons always --total-size --hyperlink -l"
 alias asdf="exit"
 alias rced="nvim ~/.zshrc"
 
