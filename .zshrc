@@ -163,6 +163,8 @@ alias lsl="eza --icons always --total-size --hyperlink -l"
 alias asdf="exit"
 alias rc="nvim ~/.zshrc"
 alias pacss="pacman -Ss"
+alias ff="fastfetch"
+alias spd="speedtest"
 alias kcon="nvim ~/.config/kitty/kitty.conf"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

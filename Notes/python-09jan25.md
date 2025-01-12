@@ -1,6 +1,8 @@
 # Data structures in python
 ---
 
+![image](https://www.python.org/static/img/python-logo.png)
+
 ## Tuple
 - colletion of elements
 - immutable (elements can't be changed)
@@ -117,4 +119,3 @@ setA.union(SetB)
 setA.intersection(setB)
 
 ```
-
