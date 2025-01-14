@@ -1,7 +1,7 @@
 # Data structures in python
 ---
 
-![image](https://www.python.org/static/img/python-logo.png)
+~~![image](https://www.python.org/static/img/python-logo.png)~~
 
 ## Tuple
 - colletion of elements
@@ -163,5 +163,5 @@ elif marks > 45 :
 	print("You got 'E' Grade");
 else :
 	print("You got Fail Grade");
-
+~~~~~~~~
 ```
