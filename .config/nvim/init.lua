@@ -158,6 +158,9 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
+-- turn off the command-line and the status-line.
+vim.opt.cmdheight = 0
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 

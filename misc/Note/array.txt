@@ -1,0 +1,1 @@
+${array[@]} // prints the whole array
