@@ -1,0 +1,70 @@
+
+[terminal.shell]
+program = "/usr/bin/zsh"
+# args = ["-l", "-c", "tmux attach -t Moon || tmux new -s Moon"]
+
+# live_config_reload = true
+
+[cursor]
+blink_interval = 500
+unfocused_hollow = false
+thickness = 0.15
+
+[cursor.style]
+blinking = "On"
+shape = "Block"
+
+[selection]
+save_to_clipboard = true
+
+[window]
+opacity = 0.8
+startup_mode = "Maximized"
+decorations = "none"
+dynamic_title = true
+dynamic_padding = true
+
+[font]
+size = 11.0
+
+[window.padding]
+x = 15
+y = 10
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[bell]
+animation = "Linear"
+duration = 0
+
+[colors.primary]
+background = "#000000"
+
+[colors]
+transparent_background_colors = true
+draw_bold_text_with_bright_colors = true
+
+[terminal]
+osc52 = "CopyPaste"
+
+[mouse]
+hide_when_typing = true
+
+# [keyboard]
+# bindings = [
+#     {key = "J", mods ="Alt|Shift", action = "ScrollLineDown"},
+#     {key = "K", mods ="Alt|Shift", action =  "ScrollLineUp" },
+#     {key = "V", mods ="Alt", action =  "ToggleViMode" },
+#     {key = "Space", mods ="Control|Shift", action =  "None" },
+#     {key = "F12", mods ="Super", action =  "None" },
+# ]
+#
+[general]
+import = [
+    # "~/.config/alacritty/themes/themes/alabaster_dark.toml",
+    # "~/.config/alacritty/catppuccin-mocha.toml",
+    # "~/.config/alacritty/tokyo-night.toml",
+    "~/.config/alacritty/fonts.toml",
+]

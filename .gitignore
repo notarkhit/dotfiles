@@ -18,6 +18,9 @@
 !.config/kitty/
 !.config/kitty/**/*
 
+!.config/alacritty/
+!.config/alacritty/**/*
+
 !.config/nvim/
 !.config/nvim/**/*
 
