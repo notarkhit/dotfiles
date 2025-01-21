@@ -145,7 +145,7 @@ eval $(thefuck --alias)
 # - $ZSH_CUSTOM/macos.zsh
 # For a full list of active aliases, run `alias`.
 
-setopt CORRECT_ALL
+#setopt CORRECT_ALL
 
 # Example aliases
 alias zshconfig="mate ~/.zshrc"
