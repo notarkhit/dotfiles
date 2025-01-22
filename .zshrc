@@ -88,7 +88,7 @@ plugins=(
   zsh-syntax-highlighting
 )
 bindkey '^ ' autosuggest-accept
-bindkey -s '^[g' "bash ~/myScripts/gitacp.sh^M"
+bindkey -s '^[g' "bash ~/.config/scripts/gitacp.sh^M"
 
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 source $ZSH/oh-my-zsh.sh
