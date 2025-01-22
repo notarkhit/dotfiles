@@ -167,7 +167,7 @@ alias pacss="pacman -Ss"
 alias ff="fastfetch"
 alias spd="speedtest"
 alias kcon="nvim ~/.config/kitty/kitty.conf"
-
+alias tmuxx="tmux new-session -A -s"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 source <(fzf --zsh)
