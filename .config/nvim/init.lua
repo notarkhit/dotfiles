@@ -161,6 +161,9 @@ vim.opt.scrolloff = 10
 -- turn off the command-line and the status-line.
 vim.opt.cmdheight = 0
 
+-- enable 24-bit color (required by nvim-notify)
+vim.opt.termguicolors = true
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
