@@ -12,6 +12,10 @@
 
 !.config/
 
+!.config/scripts/
+!.config/scripts/**/*
+
+
 !.config/hypr/
 !.config/hypr/**/*
 
