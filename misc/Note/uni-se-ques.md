@@ -10,9 +10,12 @@
 
 > Non Functional requirements 
 
-- Non functional requirements define how a software should do what it does
+- Non functional requirements define how a software should do what it does.
+
 
 ## Write down any 6 key differences between functionsl and non funcional requirements
+
+> **functional requirements**
 
 ## explain requirement engineering process
 
