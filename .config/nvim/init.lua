@@ -899,6 +899,17 @@ require("lazy").setup({
 		-- NOTE: tokyonight:
 		"folke/tokyonight.nvim",
 		priority = 1000, -- Make sure to load this before all the other start plugins.
+		opts = {
+			style = "moon", -- Whatever style you like
+			transparent = false, -- Enable this to disable setting the background color
+			terminal_colors = true, -- Configure the colors used when opening a terminal in nvim
+			-- The important part is here
+			on_colors = function(colors)
+				local num = tonumber(colors.bg:gsub("^#", ""), 16)
+				colors.bg = string.format("#%06x", num + 1)
+			end,
+		},
+
 		init = function()
 			-- Load the colorscheme here.
 			-- Like many other themes, this one has different styles, and you could load
