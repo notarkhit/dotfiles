@@ -342,6 +342,8 @@ require("lazy").setup({
 		-- nvim-web-devicons
 	},
 
+	"ThePrimeagen/vim-be-good",
+
 	-- NOTE: Plugins can specify dependencies.
 	--
 	-- The dependencies are proper plugin specifications as well - anything
