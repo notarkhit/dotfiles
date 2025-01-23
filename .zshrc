@@ -150,7 +150,7 @@ eval $(thefuck --alias)
 # Example aliases
 alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
-alias cdh="cd ~"
+alias CLEAR="clear"
 alias lf="yazi"
 alias ranger="yazi"
 alias hconf="nvim ~/.config/hypr/hyprland.conf"
