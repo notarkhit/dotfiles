@@ -12,12 +12,7 @@
     "de",
     "wm",
     "wmtheme",
-    "theme",
-    "icons",
-    "font",
-    "cursor",
     "terminal",
-    "terminalfont",
     "cpu",
     "gpu",
     "memory",
@@ -25,7 +20,6 @@
     "disk",
     "battery",
     "poweradapter",
-    "locale",
     "break",
     "colors"
   ]
