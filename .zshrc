@@ -89,6 +89,7 @@ plugins=(
 )
 bindkey '^ ' autosuggest-accept
 bindkey -s '^[g' "bash ~/.config/scripts/gitacp.sh^M"
+bindkey -s '^[u' "bash ~/.config/scripts/update.sh^M"
 
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 source $ZSH/oh-my-zsh.sh
