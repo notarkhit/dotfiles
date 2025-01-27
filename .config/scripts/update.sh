@@ -13,6 +13,16 @@ searchPackage() {
 	$repository -Ss $pkgName
 }
 
+installPackage() {
+    read -p "Enter package name: " pkgName
+	if [ $repository == "pacman" ]; then
+		sudo $repository -S $pkgName
+	else
+		$repository -S $pkgName
+	fi
+
+}
+
 case "$updateStatus" in
 	"Update system")
 		sudo $repository -Syu
@@ -21,12 +31,12 @@ case "$updateStatus" in
 		sudo $repository -Syy
 		;;
 	"Install package")
-		echo "..."
+		installPackage
 		;;
 	"Search package")
 		searchPackage	
 		;;
 	*)
-		echo "..."
+		echo "invalid option"	
 		;;
 esac
