@@ -6,7 +6,7 @@ repository=$(gum choose "pacman" "yay")
 
 echo "What do you wanna do?"
 
-updateStatus=$(gum choose "Update system" "Synchronize package database" "Install package" "Search package")
+updateStatus=$(gum choose "Search package" "Install package" "Update system" "Synchronize package database")
 
 searchPackage() {
     read -p "Enter package name: " pkgName
