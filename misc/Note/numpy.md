@@ -54,6 +54,8 @@ np.logspace(start, stop, step)
 
 ```
 
+generates numbers evenly in logarithemic space. base10
+
 3. creating numpy array using arang function
 
 ```python
@@ -69,6 +71,26 @@ np.arange(start, stop, step)
 
 import numpy as np44
 np.
+
+
+```
+
+- One dimensional array - vector
+
+- two dimensional array - matrix
+
+- 3 dimensional array - 
+
+
+## mathematical operations on arrays
+
+for creating array
+
+```python
+
+import numpy as np
+
+thisArray = np.array([1,2,3,4,5],int)
 
 
 ```
