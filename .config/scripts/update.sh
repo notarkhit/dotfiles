@@ -8,6 +8,11 @@ echo "What do you wanna do?"
 
 updateStatus=$(gum choose "Update system" "Synchronize package database" "Install package" "Search package")
 
+searchPackage() {
+    read -p "Enter package name: " pkgName
+	$repository -Ss $pkgName
+}
+
 case "$updateStatus" in
 	"Update system")
 		sudo $repository -Syu
@@ -19,7 +24,7 @@ case "$updateStatus" in
 		echo "..."
 		;;
 	"Search package")
-		echo "..."
+		searchPackage	
 		;;
 	*)
 		echo "..."
