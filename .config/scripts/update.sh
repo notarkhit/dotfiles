@@ -2,7 +2,7 @@
 
 echo "which repository"
 
-repository=$(gum choose "core/extra" "aur")
+repository=$(gum choose "pacman" "yay")
 
 echo "What do you wanna do?"
 
@@ -10,10 +10,10 @@ updateStatus=$(gum choose "Update system" "Synchronize package database" "Instal
 
 case "$updateStatus" in
 	"Update system")
-		sudo pacman -Syu
+		sudo $repository -Syu
 		;;
 	"Synchronize package database")
-		sudo pacman -Syy
+		sudo $repository -Syy
 		;;
 	"Install package")
 		echo "..."
