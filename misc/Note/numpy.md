@@ -1,5 +1,5 @@
 # Numpy 
-![img]('https://numpy.org/images/logo.svg'=x240) 
+![img](https://numpy.org/images/logo.svg) 
 
 
 ## arrays
@@ -35,7 +35,9 @@ np.array([ ], str)
 
 ```
 
-creatinf numpy array using linspace function
+## creating arrays using numpy
+
+1. creating numpy array using linspace function
 
 ```python
 
@@ -43,7 +45,7 @@ import numpy as np
 np.linspace(start, stop, step)
 
 ```
-creatinf numpy array using logspace function
+2. creating numpy array using logspace function
 
 ```python
 
@@ -52,7 +54,7 @@ np.logspace(start, stop, step)
 
 ```
 
-creating numpy array using arang function
+3. creating numpy array using arang function
 
 ```python
 
@@ -61,7 +63,7 @@ np.arange(start, stop, step)
 
 ```
 
-creating arrays using 0s and 1s
+4. creating arrays using 0s and 1s
 
 ```python
 
