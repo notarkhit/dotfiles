@@ -94,3 +94,16 @@ thisArray = np.array([1,2,3,4,5],int)
 
 
 ```
+
+
+## method n
+
+```
+import numpy as np
+
+ar = np.full((2,3),5)
+
+```
+
+## comparing arrays
+
