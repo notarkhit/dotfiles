@@ -20,7 +20,14 @@ installPackage() {
 	else
 		$repository -S $pkgName
 	fi
+}
 
+syncRepo() {
+	if [ $repository == "pacman" ]; then
+		sudo $repository -Syy
+	else
+		$repository -Syy
+	fi
 }
 
 case "$updateStatus" in
@@ -28,7 +35,7 @@ case "$updateStatus" in
 		sudo $repository -Syu
 		;;
 	"Synchronize package database")
-		sudo $repository -Syy
+		syncRepo 	
 		;;
 	"Install package")
 		installPackage
