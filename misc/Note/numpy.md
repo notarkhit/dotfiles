@@ -107,3 +107,4 @@ ar = np.full((2,3),5)
 
 ## comparing arrays
 
+## reshaping arrays
