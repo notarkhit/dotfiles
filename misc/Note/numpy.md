@@ -108,3 +108,31 @@ ar = np.full((2,3),5)
 ## comparing arrays
 
 ## reshaping arrays
+
+
+## universal fn (u fn)
+
+```python 
+import numpy as np
+
+
+```
+
+
+aggregation functions in numpy
+
+```python
+
+a = np.array([1,2,3,5,6])
+suum = np.sum(a)
+```
+
+
+
+
+
+
+
+
+
+
