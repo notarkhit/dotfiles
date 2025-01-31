@@ -53,7 +53,8 @@ while true; do
 
     # Prompt for manual SSID
     manual_ssid=$(rofi -dmenu \
-      -config "${config}")
+      -config "${config}" \
+		-p "Enter ssid ")
 
     if [ -z "$manual_ssid" ]; then
       exit
