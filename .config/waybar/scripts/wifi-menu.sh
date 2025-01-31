@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 # Rofi configuration
-config="$HOME/.config/rofi/wifi-bluetooth-menu.rasi"
+# config="$HOME/.config/rofi/wifi-bluetooth-menu.rasi"
+config="$HOME/.config/rofi/config.rasi"
 
 # Init notification
 notify-send "Wi-Fi" "Searching for available networks..."
@@ -22,10 +23,10 @@ while true; do
   # Display the menu based on Wi-Fi status
   if [[ "$wifi_status" =~ "enabled" ]]; then
     selected_option=$(echo -e "   Rescan\n   Manual Entry\n 󰤭  Disable Wi-Fi\n$wifi_list" |
-      rofi -dmenu -i -selected-row 2 -config "${config}" -theme-str "window { height: 205px; }")
+      rofi -dmenu -i -selected-row 2 -config "${config}")
   elif [[ "$wifi_status" =~ "disabled" ]]; then
     selected_option=$(echo -e " 󰤨  Enable Wi-Fi" |
-      rofi -dmenu -i -config "${config}" -theme-str "window { height: 43px; } wallbox { children: false; }")
+      rofi -dmenu -i -config "${config}")
   fi
 
   # Extract selected SSID
@@ -52,8 +53,7 @@ while true; do
 
     # Prompt for manual SSID
     manual_ssid=$(rofi -dmenu \
-      -config "${config}" \
-      -theme-str "window { height: 43px; } wallbox { enabled: true; } entry { placeholder: \"Enter SSID\"; }")
+      -config "${config}")
 
     if [ -z "$manual_ssid" ]; then
       exit
@@ -62,8 +62,8 @@ while true; do
     # Prompt for password using reusable function
     get_password() {
       rofi -dmenu -password \
-        -config "${config}" \
-        -theme-str "window { height: 43px; } wallbox { enabled: true; } entry { placeholder: \"Enter password\"; }"
+        -config "${config}"
+        -p "Enter password"
     }
 
     manual_password=$(get_password)
