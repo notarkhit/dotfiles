@@ -30,9 +30,17 @@ syncRepo() {
 	fi
 }
 
+updateSystem() {
+	if [ $repository == "pacman" ]; then
+		sudo $repository -Syu
+	else
+		$repository -Sua
+	fi
+}
+
 case "$updateStatus" in
 	"Update system")
-		sudo $repository -Syu
+		updateSystem
 		;;
 	"Synchronize package database")
 		syncRepo 	
