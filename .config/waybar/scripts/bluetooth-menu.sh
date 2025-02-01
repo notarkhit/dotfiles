@@ -6,7 +6,7 @@
 # - Connect to a device.
 
 # Rofi configuration
-config="$HOME/.config/rofi/wifi-bluetooth-menu.rasi"
+config="$HOME/.config/rofi/config.rasi"
 
 # Initial notification
 notify-send "Bluetooth" "Searching for available devices..."
@@ -26,7 +26,7 @@ while true; do
   fi
 
   # Display menu using Rofi
-  selected_option=$(echo -e "$options" | rofi -dmenu -i -selected-row 1 -config "${config}" -theme-str "${override}")
+  selected_option=$(echo -e "$options" | rofi -dmenu -i -selected-row 1 -config "${config}")
 
   # Exit if no option is selected
   if [ -z "$selected_option" ]; then
