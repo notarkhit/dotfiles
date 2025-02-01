@@ -47,12 +47,12 @@
 !.config/nwg-look/
 !.config/nwg-look/**/*
 
-!config/gtk-3.0/
-!config/gtk-3.0/**/*
+!.config/gtk-3.0/
+!.config/gtk-3.0/**/*
 
-!config/gtk-4.0/
-!config/gtk-4.0/**/*
+!.config/gtk-4.0/
+!.config/gtk-4.0/**/*
 
-!config/Kvantum/
-!config/Kvantum/**/*
+!.config/Kvantum/
+!.config/Kvantum/**/*
 
