@@ -12,6 +12,10 @@ play = [
 	{ run = 'mpv "$@"', orphan = true, for = "unix" },
 ]
 
+[preview]
+
+max_width = 1000
+
 [plugin]
 prepend_previewers = [
   { name = "*.md", run = "glow" },
