@@ -107,8 +107,8 @@
       "~": "  Terminal",
       "zsh": "  Terminal",
       "kitty": "  Terminal",
-      "sejjy@archlinux:(.*)": "  Terminal",
-      "(.*)sejjy@archlinux:~": "  Terminal",
+      "notarkhit@vaquita:(.*)": "  Terminal",
+      "(.*)notarkhit@vaquita:~": "  Terminal",
 
       // == Browser ==
 

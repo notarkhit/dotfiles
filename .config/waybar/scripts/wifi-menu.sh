@@ -23,7 +23,7 @@ while true; do
   # Display the menu based on Wi-Fi status
   if [[ "$wifi_status" =~ "enabled" ]]; then
     selected_option=$(echo -e "   Rescan\n   Manual Entry\n 󰤭  Disable Wi-Fi\n$wifi_list" |
-      rofi -dmenu -i -selected-row 2 -config "${config}" -p "Wi-Fi")
+      rofi -dmenu -i -selected-row 2 -config "${config}" -p "󰤨   Wi-Fi")
   elif [[ "$wifi_status" =~ "disabled" ]]; then
     selected_option=$(echo -e " 󰤨  Enable Wi-Fi" |
       rofi -dmenu -i -config "${config}" -p "Wi-Fi ")
@@ -64,7 +64,7 @@ while true; do
     get_password() {
       rofi -dmenu -password \
         -config "${config}" \
-        -p "Enter password "
+        -p "  Enter password "
     }
 
     manual_password=$(get_password)
