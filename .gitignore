@@ -32,6 +32,10 @@
 !.config/tmux/**/*
 .config/tmux/plugins/
 
+!.config/yazi/ 
+!.config/yazi/**/* 
+
+
 !.config/waybar/
 !.config/waybar/**/*
 
