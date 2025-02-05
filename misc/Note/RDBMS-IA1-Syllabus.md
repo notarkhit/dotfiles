@@ -24,7 +24,7 @@
 
 - integrity rules and constraints
 
-## Unit 2
+## Unit 3
 
 - the basics of sql
 
