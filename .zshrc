@@ -178,5 +178,3 @@ source <(fzf --zsh)
 export GPG_TTY=$(tty)
 
 eval "$(zoxide init zsh)"
-
-export WEZTERM_USE_WAYLAND=1
