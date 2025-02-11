@@ -4,9 +4,6 @@
 !.zshrc
 !.bashrc
 
-!misc/
-!misc/**/*
-
 !.config/
 
 !.config/scripts/
