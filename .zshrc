@@ -155,9 +155,8 @@ alias CLEAR="clear"
 alias lf="yazi"
 alias ranger="yazi"
 alias hconf="nvim ~/.config/hypr/hyprland.conf"
-alias nvconf="nvim ~/.config/nvim/init.lua"
 alias cat="bat"
-alias nvfix="rm ~/.local/ -rf"
+alias nvfix="rm ~/.local/share/nvim -rf && rm ~/.local/state/nvim -rf"
 alias tt="toipe"
 alias cd="z"
 alias ls="eza --icons always --hyperlink"
@@ -171,6 +170,7 @@ alias maria="mariadb --auto-rehash -u root -p"
 alias spd="speedtest"
 alias kcon="nvim ~/.config/kitty/kitty.conf"
 alias tmuxx="tmux new-session -A -s"
+alias sl="sl;clear"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 source <(fzf --zsh)
