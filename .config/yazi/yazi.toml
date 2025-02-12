@@ -13,7 +13,6 @@ play = [
 ]
 
 [preview]
-
 max_width = 1000
 
 [plugin]
