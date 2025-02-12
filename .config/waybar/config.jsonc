@@ -102,20 +102,28 @@
       "": 
         "<span foreground='#89b4fa'> </span> Hyprland",
 
+
       // == Terminal ==
 
       "~": "  Terminal",
       "zsh": "  Terminal",
       "kitty": "  Terminal",
+      "alacritty": "  Terminal",
+      "tmux(.*)": "  Terminal",
+      "yazi(.*)": "  Terminal",
       "notarkhit@vaquita:(.*)": "  Terminal",
       "(.*)notarkhit@vaquita:~": "  Terminal",
 
-      // == Browser ==
+	  // neovim
+	  "nvim":" neovim",
+	  "nvim(.*)":" neovim",
 
-      "(.*) — Mozilla Firefox": 
-        "<span foreground='#f38ba8'>󰈹 </span> $1",
-      "(.*)Mozilla Firefox": 
-        "<span foreground='#f38ba8'>󰈹 </span> Firefox",
+	  // == Browser ==
+
+      "(.*) — Zen Browser": 
+        " Zen",
+      "(.*)Zen Browser": 
+        " Zen",
 
       // == Development ==
 
