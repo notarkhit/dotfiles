@@ -71,7 +71,7 @@
 
   "custom/ws": {
     "on-click":"",
-    "format": "  ",
+    "format": "  ",
     "tooltip": false,
     "min-length": 3,
     "max-length": 3
@@ -109,10 +109,13 @@
       "zsh": "  Terminal",
       "kitty": "  Terminal",
       "alacritty": "  Terminal",
-      "tmux(.*)": "  Terminal",
       "yazi(.*)": "  Terminal",
       "notarkhit@vaquita:(.*)": "  Terminal",
       "(.*)notarkhit@vaquita:~": "  Terminal",
+
+
+	  //tmux
+      "tmux(.*)": " tmux",
 
 	  // neovim
 	  "nvim":" neovim",
@@ -121,9 +124,9 @@
 	  // == Browser ==
 
       "(.*) — Zen Browser": 
-        " Zen",
+        " Zen Browser",
       "(.*)Zen Browser": 
-        " Zen",
+        " Zen Browser",
 
       // == Development ==
 
