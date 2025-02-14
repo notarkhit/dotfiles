@@ -124,9 +124,9 @@
 	  // == Browser ==
 
       "(.*) — Zen Browser": 
-        " Zen Browser",
+        "󰺕 Zen Browser",
       "(.*)Zen Browser": 
-        " Zen Browser",
+        "󰺕 Zen Browser",
 
       // == Development ==
 
