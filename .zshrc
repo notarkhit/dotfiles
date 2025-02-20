@@ -190,6 +190,8 @@ alias slurp="slurp -b 00000044 -c 333333ff"
 source <(fzf --zsh)
 
 export GPG_TTY=$(tty)
+export MANPAGER="less -R --use-color -Dd+r -Du+b"
+export MANROFFOPT="-P -c"
 
 eval "$(zoxide init zsh)"
 
