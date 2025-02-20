@@ -136,6 +136,19 @@ function yy() {
 	rm -f -- "$tmp"
 }
 
+# conda activation
+function activate_conda() {
+    local current_dir_name=$(basename "$PWD")
+    local is_env=$(awk -F/ -v name="$current_dir_name" '$NF == name {print $NF}' ~/.conda/environments.txt )
+
+    if [[ ! -z $is_env ]]; then
+        source "/home/$USER/anaconda3/etc/profile.d/conda.sh" &> /dev/null
+        conda activate $current_dir_name &> /dev/null
+    # else
+    #     conda activate $CONDA_DEFAULT_ENV
+    fi
+}
+
 eval $(thefuck --alias)
 
 # Set personal al/iases, overriding those provided by Oh My Zsh libs,
@@ -180,18 +193,6 @@ export GPG_TTY=$(tty)
 
 eval "$(zoxide init zsh)"
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/notarkhit/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/notarkhit/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/notarkhit/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/notarkhit/anaconda3/bin:$PATH"
-    fi
+if [[ ! -z $TMUX ]]; then
+	activate_conda
 fi
-unset __conda_setup
-# <<< conda initialize <<<
-
