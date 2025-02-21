@@ -14,7 +14,6 @@ play = [
 
 [preview]
 max_width = 1000
-image_backend = "chafa"
 
 [plugin]
 prepend_previewers = [
