@@ -9,6 +9,8 @@
 !.config/scripts/
 !.config/scripts/**/*
 
+!.config/starship/
+!.config/starship/**/*
 
 !.config/hypr/
 !.config/hypr/**/*
