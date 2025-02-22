@@ -5,6 +5,7 @@ bindkey -s '^[g' "bash ~/.config/scripts/gitacp.sh^M"
 bindkey -s '^[u' "bash ~/.config/scripts/update.sh^M"
 
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
+export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
