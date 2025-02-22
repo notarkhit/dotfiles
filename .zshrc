@@ -10,6 +10,14 @@ export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=$HOME/.cache/zsh/history
+
+#Tab completion
+autoload -U compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots)
+
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
