@@ -7,6 +7,9 @@ bindkey -s '^[u' "bash ~/.config/scripts/update.sh^M"
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 
+HISTSIZE=10000
+SAVEHIST=10000
+HISTFILE=$HOME/.cache/zsh/history
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
