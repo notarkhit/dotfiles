@@ -1,35 +1,10 @@
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 export PATH="/home/$USER/anaconda3/bin/:$PATH"
 
-# Path to your Oh My Zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-
-ZSH_THEME="powerlevel10k/powerlevel10k"
-
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
-
-plugins=(
-  git
-  zsh-autosuggestions
-  #syntax highlighting must be last
-  zsh-syntax-highlighting
-)
 bindkey '^ ' autosuggest-accept
 bindkey -s '^[g' "bash ~/.config/scripts/gitacp.sh^M"
 bindkey -s '^[u' "bash ~/.config/scripts/update.sh^M"
 
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -79,14 +54,13 @@ function activate_conda() {
     fi
 }
 
-eval $(thefuck --alias)
 
 
 #setopt CORRECT_ALL
 
-# Example aliases
+#aliases
+
 alias zshconfig="mate ~/.zshrc"
-alias ohmyzsh="mate ~/.oh-my-zsh"
 alias CLEAR="clear"
 alias lf="yazi"
 alias ranger="yazi"
@@ -100,7 +74,7 @@ alias lsl="eza --icons always --total-size --hyperlink -l"
 alias asdf="exit"
 alias rc="nvim ~/.zshrc"
 alias pacss="pacman -Ss"
-alias ff="fastfetch"
+alias ff="pokeget charizard --hide-name | fastfetch --file-raw -"
 alias maria="mariadb --auto-rehash -u root -p"
 alias spd="speedtest"
 alias kcon="nvim ~/.config/kitty/kitty.conf"
@@ -116,7 +90,12 @@ export MANPAGER="less -R --use-color -Dd+r -Du+b"
 export MANROFFOPT="-P -c"
 
 eval "$(zoxide init zsh)"
+eval $(thefuck --alias)
 
 if [[ ! -z $TMUX ]]; then
 	activate_conda
 fi
+
+
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
