@@ -91,11 +91,13 @@ export MANROFFOPT="-P -c"
 
 eval "$(zoxide init zsh)"
 eval $(thefuck --alias)
+eval "$(starship init zsh)"
 
 if [[ ! -z $TMUX ]]; then
 	activate_conda
 fi
 
-
+# source /usr/share/zsh/plugins/
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
