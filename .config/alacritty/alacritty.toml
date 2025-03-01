@@ -18,7 +18,7 @@ shape = "Block"
 save_to_clipboard = true
 
 [window]
-opacity = 0.88
+opacity = 0.8
 startup_mode = "Maximized"
 decorations = "none"
 dynamic_title = true
