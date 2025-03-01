@@ -25,14 +25,14 @@ signal=$(echo "$wifi_info" | awk -F: '{print $3}')
 
 # Determine icon based on signal strength
 if [[ "$signal" -ge 80 ]]; then
-  printf "󰤨 "
+  printf "󰤨  "
 elif [[ "$signal" -ge 60 ]]; then
-  printf "󰤥 "
+  printf "󰤥  "
 elif [[ "$signal" -ge 40 ]]; then
-  printf "󰤢 "
+  printf "󰤢  "
 elif [[ "$signal" -ge 20 ]]; then
-  printf "󰤟 "
+  printf "󰤟  "
 else
-  printf "󰤮 "
+  printf "󰤮  "
 fi
 
