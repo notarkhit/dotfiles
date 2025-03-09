@@ -3,6 +3,7 @@
 !.gitignore
 !.zshrc
 !.bashrc
+!setup.sh
 
 !.config/
 
