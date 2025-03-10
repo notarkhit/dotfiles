@@ -63,7 +63,12 @@ function activate_conda() {
     fi
 }
 
-
+function nvm_init() {
+	# source /usr/share/nvm/init-nvm.sh
+	[ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
+	source /usr/share/nvm/nvm.sh
+	source /usr/share/nvm/install-nvm-exec
+}
 
 #setopt CORRECT_ALL
 
@@ -127,8 +132,5 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 # <<< conda initialize <<<
 
 if [[ ! -z $TMUX ]]; then
-	# source /usr/share/nvm/init-nvm.sh
-	[ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
-	source /usr/share/nvm/nvm.sh
-	source /usr/share/nvm/install-nvm-exec
+	nvm_init
 fi
