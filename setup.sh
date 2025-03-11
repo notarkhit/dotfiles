@@ -14,5 +14,14 @@ if ! pacman -Qe | grep gum > /dev/null; then
 		exit 1
 	fi
 fi
+gum confirm "Install yay AUR helper?" && install_yay
+
 
 gum confirm "continue" && nvim ~/setup.sh
+
+install_yay() {
+	sudo pacman -S --needed git base-devel
+	git clone https://aur.archlinux.org/yay-bin.git
+	cd yay-bin
+	makepkg -si
+}
