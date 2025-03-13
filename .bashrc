@@ -13,6 +13,15 @@ PS1='[\u@\h \W]\$ '
 eval "$(starship init bash)"
 eval "$(zoxide init bash)"
 
+
+function nvm_init() {
+	# source /usr/share/nvm/init-nvm.sh
+	[ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
+	source /usr/share/nvm/nvm.sh
+	source /usr/share/nvm/install-nvm-exec
+}
+
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/notarkhit/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
@@ -28,3 +37,4 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+nvm_init
