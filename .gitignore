@@ -55,3 +55,9 @@
 !.config/Kvantum/
 !.config/Kvantum/**/*
 
+!.config/pipewire/
+!.config/pipewire/**/*
+
+!.config/pipewire/media-session.d/
+!.config/pipewire/media-session.d/**/*
+
