@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 install_yay() {
 	sudo pacman -S --needed git base-devel
 	git clone https://aur.archlinux.org/yay-bin.git
@@ -12,7 +14,7 @@ if ! cat /etc/os-release | grep archlinux > /dev/null ; then
 	exit 1
 fi
 
-if ! pacman -Qe | grep gum > /dev/null; then
+if ! pacman -Qe | grep gum -q ; then
 	read -p "Install gum? (Y/n)" gumstatus
     if [[ "$gumstatus" == "y" ]] || [[ "$gumstatus" == "Y" ]] || [[ "$gumstatus" == "" ]]; then
 		sudo pacman -S gum
