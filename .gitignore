@@ -7,6 +7,9 @@
 !README.md
 !LICENSE
 
+!grimoire/
+!grimoire/**/*
+
 !.config/
 
 !.config/scripts/

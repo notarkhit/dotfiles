@@ -134,3 +134,5 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 if [[ ! -z $TMUX ]]; then
 	nvm_init
 fi
+
+export PATH="$PATH:$HOME/grimoire"

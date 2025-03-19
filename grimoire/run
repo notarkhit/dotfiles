@@ -1,0 +1,33 @@
+#!/bin/bash
+
+red='\033[0;31m'
+nc='\033[0m'
+
+if [ -z "$1" ];then
+	echo "Usage run.sh <filename>"
+	exit 1
+fi
+
+filename=$1
+extension="${filename##*.}"
+name="${filename%.*}"
+
+if [ ! -f $1 ]; then
+	echo -e "${red}ERROR:${nc} File $filename not found!"
+	exit 1
+fi
+
+case "$extension" in 
+	py)
+		python -u $filename
+		;;
+	c)
+		gcc $filename -o $name && ./$name
+		;;
+	cpp)
+		g++ $filename -o $name && ./$name
+		;;
+	*)
+		echo -e "${red}ERROR:${nc} Unsupported file type: $extension"
+		exit 1
+esac
