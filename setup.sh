@@ -23,8 +23,10 @@ if ! pacman -Qe | grep gum -q ; then
 		exit 1
 	fi
 fi
-gum confirm "Install yay AUR helper?" && install_yay
 
+if ! yay -V > /dev/null; then
+	gum confirm "Install yay AUR helper?" && install_yay
+fi
 
 gum confirm "continue" && nvim ~/setup.sh
 
