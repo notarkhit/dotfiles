@@ -1,5 +1,11 @@
-export PATH="/home/$USER/anaconda3/bin/:$PATH"
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
+export PATH="/home/$USER/anaconda3/bin/:$PATH"
 bindkey '^ ' autosuggest-accept
 bindkey -s '^[g' "bash ~/.config/scripts/gitacp.sh^M"
 bindkey -s '^[u' "bash ~/.config/scripts/update.sh^M"
@@ -66,8 +72,9 @@ function activate_conda() {
 function nvm_init() {
 	# source /usr/share/nvm/init-nvm.sh
 	[ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
-	source /usr/share/nvm/nvm.sh
-	source /usr/share/nvm/install-nvm-exec
+	source /usr/share/nvm/init-nvm.sh
+	# source /usr/share/nvm/nvm.sh
+	# source /usr/share/nvm/install-nvm-exec
 }
 
 #setopt CORRECT_ALL
