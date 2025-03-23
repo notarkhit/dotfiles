@@ -9,6 +9,7 @@ export PATH="/home/$USER/anaconda3/bin/:$PATH"
 bindkey '^ ' autosuggest-accept
 bindkey -s '^[g' "bash ~/.config/scripts/gitacp.sh^M"
 bindkey -s '^[u' "bash ~/.config/scripts/update.sh^M"
+bindkey -s '^[b' "systemctl --user restart pipewire pipewire-pulse wireplumber"
 
 HISTSIZE=10000
 SAVEHIST=10000

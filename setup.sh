@@ -9,12 +9,12 @@ install_yay() {
 	makepkg -si
 }
 
-if ! cat /etc/os-release | grep archlinux > /dev/null ; then
+if ! cat /etc/os-release | grep -q archlinux; then
 	echo "this script was made to be run on archlinux only"
 	exit 1
 fi
 
-if ! pacman -Qe | grep gum -q ; then
+if ! pacman -Q gum > /dev/null ; then
 	read -p "Install gum? (Y/n)" gumstatus
     if [[ "$gumstatus" == "y" ]] || [[ "$gumstatus" == "Y" ]] || [[ "$gumstatus" == "" ]]; then
 		sudo pacman -S gum
@@ -24,7 +24,7 @@ if ! pacman -Qe | grep gum -q ; then
 	fi
 fi
 
-if ! yay -V > /dev/null; then
+if ! command -v yay > /dev/null; then
 	gum confirm "Install yay AUR helper?" && install_yay
 fi
 
