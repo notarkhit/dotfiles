@@ -2,6 +2,21 @@
 
 set -e
 
+banner() {
+echo \
+"
+   ▄   ████▄    ▄▄▄▄▀ ██   █▄▄▄▄ █  █▀ ▄  █ ▄█    ▄▄▄▄▀ 
+    █  █   █ ▀▀▀ █    █ █  █  ▄▀ █▄█  █   █ ██ ▀▀▀ █    
+██   █ █   █     █    █▄▄█ █▀▀▌  █▀▄  ██▀▀█ ██     █    
+█ █  █ ▀████    █     █  █ █  █  █  █ █   █ ▐█    █     
+█  █ █         ▀         █   █     █     █   ▐   ▀      
+█   ██                  █   ▀     ▀     ▀               
+                       ▀                                
+" ;
+}
+
+banner
+
 install_yay() {
 	sudo pacman -S --needed git base-devel
 	git clone https://aur.archlinux.org/yay-bin.git
