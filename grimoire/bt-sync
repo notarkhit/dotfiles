@@ -1,7 +1,14 @@
-#!/bin/bash
+!/bin/bash
 
 red='\033[0;31m'
 nocolor='\033[0m'
+
+bluetooth_status=$(bluetoothctl show | grep "Powered:" | awk '{print $2}')
+
+if [[ $bluetooth_status == "no" ]]; then
+	gum confirm "Start bluetooth ? " && rfkill unblock bluetooth
+fi
+
 
 gum confirm " restart pipewire & wireplumber? " && systemctl --user restart pipewire pipewire-pulse wireplumber
 
