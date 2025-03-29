@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 
 red='\033[0;31m'
 nocolor='\033[0m'
@@ -6,16 +6,19 @@ nocolor='\033[0m'
 bluetooth_status=$(bluetoothctl show | grep "Powered:" | awk '{print $2}')
 
 if [[ $bluetooth_status == "no" ]]; then
-	gum confirm "Start bluetooth ? " && rfkill unblock bluetooth
-fi
+	
+	if gum confirm "Start bluetooth ? "; then
 
-
-gum confirm " restart pipewire & wireplumber? " && systemctl --user restart pipewire pipewire-pulse wireplumber
-
-exit_code=$?
-
-if [[ 0 -eq $exit_code ]]; then
-	echo "Sucessfully restarted pipewire, pipewire-pulse, and wireplumber"
+		gum confirm " restart pipewire & wireplumber? " && systemctl --user restart pipewire pipewire-pulse wireplumber
+		exit_code=$?
+		
+		if [[ 0 -eq $exit_code ]]; then
+			echo "Sucessfully restarted pipewire, pipewire-pulse, and wireplumber"
+		else
+			echo -e "${red}ERROR:${nocolor} Failed to restart services"
+		
+		fi
+	fi
 else
-	echo -e "${red}ERROR:${nocolor} Failed to restart services"
+	gum confirm "Stop bluetooth ? " && rfkill block bluetooth
 fi
