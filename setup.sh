@@ -22,6 +22,13 @@ install_yay() {
 	git clone https://aur.archlinux.org/yay-bin.git
 	cd yay-bin
 	makepkg -si
+
+	if yay -V > /dev/null ; then 
+		echo "::yay is installed Cleaning up ..."
+		cd ..
+		rm -rf yay-bin
+		echo "::Finished"
+	fi
 }
 
 if ! cat /etc/os-release | grep -q archlinux; then
