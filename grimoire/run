@@ -27,6 +27,9 @@ case "$extension" in
 	cpp)
 		g++ $filename -o $name && ./$name
 		;;
+	java)
+		javac $filename && java $filename
+		;;
 	*)
 		echo -e "${red}ERROR:${nocolor} Unsupported file type: $extension"
 		exit 1
