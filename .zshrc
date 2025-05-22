@@ -5,6 +5,12 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+
+# Path to your Oh My Zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
+
 export PATH="/home/$USER/anaconda3/bin/:$PATH"
 bindkey '^ ' autosuggest-accept
 bindkey -s '^[g' "bash ~/.config/scripts/gitacp.sh^M"
@@ -16,12 +22,59 @@ SAVEHIST=10000
 HISTFILE=$HOME/.cache/zsh/.history
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 
-#Tab completion
-autoload -U compinit
-zstyle ':completion:*' menu select
-zmodload zsh/complist
-compinit
-_comp_options+=(globdots)
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+# zstyle ':omz:update' mode disabled  # disable automatic updates
+# zstyle ':omz:update' mode auto      # update automatically without asking
+ zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# You can also set it to another string to have that shown instead of the default red dots.
+# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(
+	git 
+	zsh-syntax-highlighting 
+    zsh-autosuggestions
+)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -32,9 +85,8 @@ _comp_options+=(globdots)
 
 # Compilation flags
 # export ARCHFLAGS="-arch $(uname -m)"
-
-#preexec
-# PreExec-Funcitons:
+#
+# #preexec
 function preexec(){
     if [[ "$1" == *"--help"* ]]; then
         help=$(eval "$1")
@@ -47,8 +99,8 @@ function preexec(){
     fi
 }
 
-# yazi shell wrapper
 
+# yazi shell wrapper
 function yy() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
 	yazi "$@" --cwd-file="$tmp"
@@ -78,8 +130,6 @@ function nvm_init() {
 	# source /usr/share/nvm/install-nvm-exec
 }
 
-#setopt CORRECT_ALL
-
 #aliases
 
 alias zshconfig="mate ~/.zshrc"
@@ -103,10 +153,12 @@ alias kcon="nvim ~/.config/kitty/kitty.conf"
 alias tmuxx="tmux new-session -A -s"
 # alias sl="sl;clear"
 alias slurp="slurp -b 00000044 -c 333333ff"
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-source <(fzf --zsh)
 
+
+source <(fzf --zsh)
 export GPG_TTY=$(tty)
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
 export MANROFFOPT="-P -c"
@@ -117,12 +169,6 @@ eval $(thefuck --alias)
 if [[ ! -z $TMUX ]]; then
 	activate_conda
 fi
-
-# source /usr/share/zsh/plugins/
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
