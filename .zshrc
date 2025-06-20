@@ -153,6 +153,7 @@ alias kcon="nvim ~/.config/kitty/kitty.conf"
 alias tmuxx="tmux new-session -A -s"
 # alias sl="sl;clear"
 alias slurp="slurp -b 00000044 -c 333333ff"
+alias anime="ani-cli"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
