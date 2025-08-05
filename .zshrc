@@ -134,6 +134,11 @@ alias tmux="tmux new-session -A -s"
 alias slurp="slurp -b 00000044 -c 333333ff"
 alias anime="ani-cli"
 alias kys="poweroff"
+alias vi="nvim"
+alias vim="nvim"
+alias nano="nvim"
+alias code="nvim"
+alias emacs="nvim"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
