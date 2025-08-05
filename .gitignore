@@ -7,9 +7,6 @@
 !README.md
 !LICENSE
 
-!grimoire/
-!grimoire/**/*
-
 !.config/
 
 !.config/scripts/
@@ -64,3 +61,8 @@
 !.config/pipewire/media-session.d/
 !.config/pipewire/media-session.d/**/*
 
+!grimoire/
+!grimoire/**/*
+
+!.scripts/
+!.scripts/**/*
