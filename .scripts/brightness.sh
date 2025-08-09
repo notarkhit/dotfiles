@@ -6,7 +6,7 @@ function notify_brightness() {
   CURRENT_BRIGHTNESS=$(brightnessctl get) 
 
   BRIGHTNESS_PERCENT=$(brightnessctl | awk -F '[()]' '/Current brightness/ {print $2}')
-  dunstify -r 9993 -t 3000 -a "  Brightness" -h int:value:"$BRIGHTNESS_PERCENT" "brightness: ${BRIGHTNESS_PERCENT}" -i "/usr/share/icons/Papirus/32x32/apps/brightness-systray.svg"
+  dunstify -r 9993 -t 3000 -a "  Brightness" -h int:value:"$BRIGHTNESS_PERCENT" "brightness: ${BRIGHTNESS_PERCENT}" -i "/usr/share/icons/Papirus/16x16/apps/brightness-systray.svg"
 }
 
 # Check command line arguments
