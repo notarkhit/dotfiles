@@ -33,12 +33,16 @@ elif [[ "$1" == "dec" ]]; then
 	fi
 elif [[ "$1" == "mute" ]]; then
     pactl set-sink-mute @DEFAULT_SINK@ toggle
-	if [ "$(get_muted)" = "yes" ]; then
-		volumeicon=/usr/share/icons/Papirus/32x32/symbolic/status/audio-volume-muted-symbolic.svg
-	else 
-		volumeicon=/usr/share/icons/Papirus/32x32/symbolic/status/audio-volume-medium-symbolic.svg
-	fi
 fi
 
 VOLUME=$(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' | sed 's/%//')
-dunstify -r 9993 -t 3000 -a "Volume" -h int:value:"$VOLUME" "Volume: ${VOLUME}%" -i $volumeicon
+volumevalue=$VOLUME
+
+if [ "$(get_muted)" = "yes" ]; then
+	volumeicon=/usr/share/icons/Papirus/32x32/symbolic/status/audio-volume-muted-symbolic.svg
+	VOLUME=0
+else 
+	volumeicon=/usr/share/icons/Papirus/32x32/symbolic/status/audio-volume-medium-symbolic.svg
+fi
+
+dunstify -r 9993 -t 3000 -a "Volume" -h int:value:"$VOLUME" "Volume: ${volumevalue}%" -i $volumeicon
