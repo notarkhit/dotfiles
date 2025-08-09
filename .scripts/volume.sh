@@ -24,26 +24,33 @@ fi
 # Perform volume adjustment
 if [[ "$1" == "inc" ]]; then
     [ "$(get_current_volume)" -lt 150 ] && pactl set-sink-volume @DEFAULT_SINK@ +1%
-	volumeicon=/usr/share/icons/Papirus/32x32/symbolic/status/audio-volume-high-symbolic.svg
 elif [[ "$1" == "dec" ]]; then
     pactl set-sink-volume @DEFAULT_SINK@ -1%
-	volumeicon=/usr/share/icons/Papirus/32x32/symbolic/status/audio-volume-medium-symbolic.svg
 elif [[ "$1" == "mute" ]]; then
     pactl set-sink-mute @DEFAULT_SINK@ toggle
 fi
 
 VOLUME=$(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' | sed 's/%//')
-volumevalue=$VOLUME
+MUTED=$(get_muted)
 
-if [[ "$(get_current_volume)" -eq 0 ]]; then
-	volumeicon=/usr/share/icons/Papirus/32x32/symbolic/status/audio-volume-low-symbolic.svg
+# select icons
+if [[ "$MUTED" == "yes" ]]; then
+    volumeicon="/usr/share/icons/Papirus/32x32/symbolic/status/audio-volume-muted-symbolic.svg"
+    display_volume="Muted"
+else
+    display_volume="${VOLUME}%"
+    if [[ $VOLUME -eq 0 ]]; then
+        volumeicon="/usr/share/icons/Papirus/32x32/symbolic/status/audio-volume-low-symbolic.svg"
+    elif [[ $VOLUME -le 25 ]]; then
+        volumeicon="/usr/share/icons/Papirus/32x32/symbolic/status/audio-volume-medium-symbolic.svg"
+    elif [[ $VOLUME -le 75 ]]; then
+        volumeicon="/usr/share/icons/Papirus/32x32/symbolic/status/audio-volume-high-symbolic.svg"
+    elif [[ $VOLUME -le 100 ]]; then
+        volumeicon="/usr/share/icons/Papirus/32x32/symbolic/status/audio-volume-high-warning-symbolic.svg"
+    else
+        volumeicon="/usr/share/icons/Papirus/32x32/symbolic/status/audio-volume-high-danger-symbolic.svg"
+    fi
 fi
 
-if [ "$(get_muted)" = "yes" ]; then
-	volumeicon=/usr/share/icons/Papirus/32x32/symbolic/status/audio-volume-muted-symbolic.svg
-	VOLUME=0
-elif [ "$(get_current_volume)" -ne 0 ]; then
-	volumeicon=/usr/share/icons/Papirus/32x32/symbolic/status/audio-volume-medium-symbolic.svg
-fi
-
-dunstify -r 9993 -t 3000 -a "Volume" -h int:value:"$VOLUME" "Volume: ${volumevalue}%" -i $volumeicon
+# send notification
+dunstify -r 9993 -t 3000 -a "Volume" -h int:value:"$VOLUME" "Volume: ${display_volume}" -i $volumeicon
