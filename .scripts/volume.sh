@@ -19,12 +19,12 @@ fi
 
 # Perform volume adjustment
 if [[ "$1" == "inc" ]]; then
-    [ "$(get_current_volume)" -lt 150 ] && pactl set-sink-volume @DEFAULT_SINK@ +2%
+    [ "$(get_current_volume)" -lt 150 ] && pactl set-sink-volume @DEFAULT_SINK@ +1%
 elif [[ "$1" == "dec" ]]; then
-    pactl set-sink-volume @DEFAULT_SINK@ -2%
+    pactl set-sink-volume @DEFAULT_SINK@ -1%
 elif [[ "$1" == "mute" ]]; then
     pactl set-sink-mute @DEFAULT_SINK@ toggle
 fi
 
 VOLUME=$(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' | sed 's/%//')
-dunstify -r 9993 -t 3000 -a "  Volume" -h int:value:"$VOLUME" "Volume: ${VOLUME}%"
+dunstify -r 9993 -t 3000 -a "  Volume" -h int:value:"$VOLUME" "Volume: ${VOLUME}%" -i "/usr/share/icons/Papirus/32x32/devices/audio-headset.svg"
