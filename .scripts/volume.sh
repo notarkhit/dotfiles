@@ -43,13 +43,18 @@ else
         volumeicon="/usr/share/icons/Papirus/32x32/symbolic/status/audio-volume-low-symbolic.svg"
     elif [[ $VOLUME -le 25 ]]; then
         volumeicon="/usr/share/icons/Papirus/32x32/symbolic/status/audio-volume-medium-symbolic.svg"
-    elif [[ $VOLUME -le 75 ]]; then
+    elif [[ $VOLUME -le 50 ]]; then
         volumeicon="/usr/share/icons/Papirus/32x32/symbolic/status/audio-volume-high-symbolic.svg"
-    elif [[ $VOLUME -le 100 ]]; then
+    elif [[ $VOLUME -le 75 ]]; then
         volumeicon="/usr/share/icons/Papirus/32x32/symbolic/status/audio-volume-high-warning-symbolic.svg"
-    else
+    elif [[ $VOLUME -le 100 ]]; then
         volumeicon="/usr/share/icons/Papirus/32x32/symbolic/status/audio-volume-high-danger-symbolic.svg"
-    fi
+    else
+	    orig="/usr/share/icons/Papirus/32x32/symbolic/status/audio-volume-overamplified-symbolic.svg"
+	    tmp="/tmp/audio-overamplified-red.svg"
+	    sed 's/currentColor/#ff6347/' "$orig" > "$tmp"
+		volumeicon="$tmp"
+	fi
 fi
 
 # send notification
