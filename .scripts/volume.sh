@@ -36,7 +36,7 @@ MUTED=$(get_muted)
 # select icons
 if [[ "$MUTED" == "yes" ]]; then
     volumeicon="/usr/share/icons/Papirus/32x32/symbolic/status/audio-volume-muted-symbolic.svg"
-    display_volume="Muted"
+	display_volume="${VOLUME}% (Muted)"
 else
     display_volume="${VOLUME}%"
     if [[ $VOLUME -eq 0 ]]; then
