@@ -128,6 +128,11 @@
       "(.*)Zen Browser": 
         "󰺕 Zen Browser",
 
+	  // Youtube
+      "(.*)YouTube(.*)": 
+        "<span foreground='#FF0033'> </span>Youtube",
+
+
       // == Development ==
 
       "(.*) - Visual Studio Code": 
@@ -264,7 +269,7 @@
         "months": 
           "<span color='#b4befe'><b>{}</b></span>",
         "weekdays": 
-          "<span color='#a6adc8' font='7'>{}</span>",
+          "<span color='#a6adc8'>{}</span>",
         "today": 
           "<span color='#f38ba8'><b>{}</b></span>"
       }
