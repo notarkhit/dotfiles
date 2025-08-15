@@ -14,6 +14,10 @@ EOF
 send_notification() {
   brightness=$(brightnessctl info | grep -oP "(?<=\()\d+(?=%)")
   notify-send -r 91190 "Brightness: ${brightness}%"
+
+	#BRIGHTNESS_PERCENT=$(brightnessctl | awk -F '[()]' '/Current brightness/ {print $2}')
+	#dunstify -r 9993 -t 3000 -a "  Brightness" -h int:value:"$BRIGHTNESS_PERCENT" "brightness: ${BRIGHTNESS_PERCENT}" -i "/usr/share/icons/Papirus/16x16/apps/brightness-systray.svg"
+
 }
 
 # Get the current brightness percentage and device name

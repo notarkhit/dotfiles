@@ -129,12 +129,25 @@ class PlayerManager:
     else:
       track_info = title
 
+    status = player.props.status.strip().lower()
+
     if track_info:
-      track_info = (
-        f"<span color='#a6e3a1'>󰓇  </span>" if player.props.status == "Playing" and player_name == "spotify" else
-        f"<span color='#f38ba8'>󰗃  </span>" if player.props.status == "Playing" and player_name == "firefox" else
-        f"<span color='#b4befe'>\u200A󰏤 \u2009\u2009\u200A</span>"
-      ) + track_info
+        if status == "playing":
+            if player_name == "spotify":
+                track_info = f"<span color='#a6e3a1'>󰓇  </span>{track_info}"
+            elif player_name == "firefox":
+                track_info = f"<span color='#f38ba8'>󰗃  </span>{track_info}"
+            else:
+                track_info = f"<span color='#a6e3a1'>▶ </span>{track_info}"
+        else:
+            track_info = f"<span color='#b4befe'>⏸ </span>{track_info}"
+
+    # if track_info:
+    #   track_info = (
+    #     f"<span color='#a6e3a1'>󰓇  </span>" if player.props.status == "Playing" and player_name == "spotify" else
+    #     f"<span color='#f38ba8'>󰗃  </span>" if player.props.status == "Playing" and player_name == "firefox" else
+    #     f"<span color='#b4befe'>\u200A󰏤 \u2009\u2009\u200A</span>"
+    #   ) + track_info
 
     # Only print output if no other player is playing
     current_playing = self.get_first_playing_player()
