@@ -40,7 +40,7 @@ if [[ "$MUTED" == "yes" ]]; then
 else
     display_volume="${VOLUME}%"
     if [[ $VOLUME -eq 0 ]]; then
-        volumeicon="/usr/share/icons/Papirus/32x32/symbolic/status/audio-volume-low-symbolic.svg"
+        volumeicon="/usr/share/icons/Papirus/64x64/symbolic/status/audio-volume-low-symbolic.svg"
     elif [[ $VOLUME -le 25 ]]; then
         volumeicon="/usr/share/icons/Papirus/32x32/symbolic/status/audio-volume-medium-symbolic.svg"
     elif [[ $VOLUME -le 50 ]]; then
