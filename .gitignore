@@ -61,8 +61,8 @@
 !.config/pipewire/media-session.d/
 !.config/pipewire/media-session.d/**/*
 
-./.config/mpd/
-./.config/mpd/**/*
+!.config/mpd/
+!.config/mpd/**/*
 
 !grimoire/
 !grimoire/**/*
