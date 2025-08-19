@@ -140,6 +140,8 @@ alias nano="nvim"
 alias code="nvim"
 alias emacs="nvim"
 alias ow="sudo pacman -S --overwrite '*'"
+alias music="ncmpcpp"
+alias gitstat="git --no-pager diff --stat"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
