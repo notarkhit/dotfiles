@@ -129,7 +129,7 @@ alias ff="pokeget charizard --hide-name | fastfetch --file-raw -"
 alias maria="mariadb --auto-rehash -u root -p"
 alias spd="speedtest"
 alias kcon="nvim ~/.config/kitty/kitty.conf"
-alias tmux="tmux new-session -A -s"
+alias tmx="tmux new-session -A -s"
 # alias sl="sl;clear"
 alias slurp="slurp -b 00000044 -c 333333ff"
 alias anime="ani-cli"
@@ -156,7 +156,16 @@ eval "$(zoxide init zsh)"
 eval $(thefuck --alias)
 
 if [[ ! -z $TMUX ]]; then
-	activate_conda
+	
+	session_name=$(tmux display-message -p '#S')
+
+	if [[ $session_name =~ (py|python|ml|machine-learning|ai|conda|venv) ]]; then
+		activate_conda
+	fi
+
+	if [[ $session_name =~ (javascript|html|css|web|webdev|js|node|nodejs|react|angular|frontend|backend) ]]; then
+		nvm_init	
+	fi
 fi
 
 # >>> conda initialize >>>
@@ -174,8 +183,7 @@ fi
 # unset __conda_setup
 # <<< conda initialize <<<
 
-if [[ ! -z $TMUX ]]; then
-	nvm_init
-fi
 
 export PATH="$PATH:$HOME/grimoire"
+export CLASSPATH=/usr/share/java/mariadb-jdbc/mariadb-java-client.jar:.
+
