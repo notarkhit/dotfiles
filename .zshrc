@@ -164,7 +164,9 @@ if [[ ! -z $TMUX ]]; then
 	fi
 
 	if [[ $session_name =~ (javascript|html|css|web|webdev|js|node|nodejs|react|angular|frontend|backend) ]]; then
-		nvm_init	
+		nvm_init
+		# Load Angular CLI autocompletion.
+		source <(ng completion script)
 	fi
 fi
 
