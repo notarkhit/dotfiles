@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="32"
+   height="32"
+   version="1.1"
+   id="svg3"
+   sodipodi:docname="volume-high-danger.svg"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview3"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:zoom="20.0625"
+     inkscape:cx="16"
+     inkscape:cy="16"
+     inkscape:window-width="1920"
+     inkscape:window-height="1052"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg3" />
+  <defs
+     id="defs1">
+    <style
+       id="current-color-scheme"
+       type="text/css">
+   .ColorScheme-Text { color:#dfdfdf; } .ColorScheme-Highlight { color:#4285f4; } .ColorScheme-NeutralText { color:#ff9800; } .ColorScheme-PositiveText { color:#4caf50; } .ColorScheme-NegativeText { color:#f44336; }
+  </style>
+  </defs>
+  <path
+     style="fill:currentColor;stroke-width:2.1056"
+     class="ColorScheme-NegativeText error"
+     d="M 19.62069,9.5714284 V 22.428572 C 21.81379,21.185715 23.32207,18.785715 23.32207,16 c 0,-2.785715 -1.48759,-5.185715 -3.70138,-6.4285716 z"
+     id="path1" />
+  <path
+     style="fill:currentColor;stroke-width:2.1056"
+     class="ColorScheme-NegativeText error"
+     d="M 19.62069,1 V 4.2142857 C 24.42069,5.8 27.89655,10.492857 27.89655,16 c 0,5.507143 -3.47586,10.2 -8.27586,11.785715 V 31 C 26.13793,29.328572 31,23.285715 31,16 31,8.7142857 26.13793,2.6714285 19.62069,1 Z"
+     id="path2" />
+  <path
+     style="fill:currentColor;stroke-width:2.1056"
+     class="ColorScheme-Text"
+     d="M 15.482759,1 7.206897,9.5714284 H 1 V 22.428572 H 7.206897 L 15.482759,31 Z"
+     id="path3" />
+</svg>

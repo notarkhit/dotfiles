@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="32"
+   height="32"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="volume-overamplified.svg"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:zoom="20.0625"
+     inkscape:cx="16"
+     inkscape:cy="16"
+     inkscape:window-width="1920"
+     inkscape:window-height="1080"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <defs
+     id="defs1">
+    <style
+       id="current-color-scheme"
+       type="text/css">
+   .ColorScheme-Text { color:#444444; } .ColorScheme-Highlight { color:#4285f4; } .ColorScheme-NeutralText { color:#ff9800; } .ColorScheme-PositiveText { color:#4caf50; } .ColorScheme-NegativeText { color:#f44336; }
+  </style>
+  </defs>
+  <path
+     style="fill:#ff4525;stroke-width:2.22375;fill-opacity:1"
+     class="ColorScheme-Text"
+     d="M 17.153846,1 7.9230769,9.5714286 H 1 V 22.428571 H 7.9230769 L 17.153846,31 Z m 11.538462,2.1428571 c -1.278462,0 -2.307693,0.9557143 -2.307693,2.1428572 V 26.714286 c 0,1.187143 1.029231,2.142857 2.307693,2.142857 C 29.970769,28.857143 31,27.901429 31,26.714286 V 5.2857143 C 31,4.0985714 29.970769,3.1428571 28.692308,3.1428571 Z m -6.923077,4.2857143 c -1.278462,0 -2.307693,0.9557143 -2.307693,2.1428572 V 22.428571 c 0,1.187143 1.029231,2.142858 2.307693,2.142858 1.278461,0 2.307692,-0.955715 2.307692,-2.142858 V 9.5714286 c 0,-1.1871429 -1.029231,-2.1428572 -2.307692,-2.1428572 z"
+     id="path1" />
+</svg>
