@@ -1,10 +1,19 @@
 configuration {
+	// modes: "window,run,drun";
     show-icons:      true;
     display-drun:    "";
     disable-history: false;
 	terminal: "alacritty";
 }
 
+listview {
+	columns: 1;
+	lines:8;
+}
+
+window {
+	height: 100%;
+}
 
 
 //@theme "/home/notarkhit/.config/rofi/themes/dracula-theme.rasi"
