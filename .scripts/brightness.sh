@@ -3,9 +3,13 @@
 function notify_brightness() {
 	local BRIGHTNESS_PERCENT="$1"
 	if [[ -z "$BRIGHTNESS_PERCENT" ]]; then
-		BRIGHTNESS_PERCENT=$(brightnessctl | awk -F '[()]' '/Current brightness/ {print $2}')
+		BRIGHTNESS_PERCENT=$(brightnessctl | awk -F '[()]' '/Current brightness/ {print $2}' | tr -d '%')
 	fi
-	dunstify -r 9993 -t 3000 -a "  Brightness" -h int:value:"$BRIGHTNESS_PERCENT" "brightness: ${BRIGHTNESS_PERCENT}" -i "/usr/share/icons/Papirus/16x16/apps/brightness-systray.svg"
+	
+	local roundedbr=$(( 5 * ((BRIGHTNESS_PERCENT + 2) / 5) ))
+	local icon="/home/notarkhit/.icons/custom/brightness/br-${roundedbr}.svg"
+
+	dunstify -r 9993 -t 3000 -a "Brightness" -h int:value:"$BRIGHTNESS_PERCENT" "Brightness: ${BRIGHTNESS_PERCENT}%" -i $icon
 }
 
 # Check command line arguments
@@ -28,7 +32,7 @@ elif [[ "$1" == "dec" ]]; then
 	if ((BRIGHTNESS_PERCENT > 1 )); then
 		brightnessctl set 1%- > /dev/null
 	elif ((BRIGHTNESS_PERCENT == 1)); then
-		notify_brightness 0%
+		notify_brightness 0
 		exit 0
 	fi
 		notify_brightness
