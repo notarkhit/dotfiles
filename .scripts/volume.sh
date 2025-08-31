@@ -32,27 +32,29 @@ fi
 
 VOLUME=$(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' | sed 's/%//')
 MUTED=$(get_muted)
-ICONPATH="/home/notarkhit/.icons/custom/audio/"
+ICONPATH="/home/notarkhit/.icons/custom/volume/"
 
 # select icons
 if [[ "$MUTED" == "yes" ]]; then
-    volumeicon="${ICONPATH/}/volume-muted.svg"
+    volumeicon="${ICONPATH/}/muted.svg"
 	display_volume="${VOLUME}% (Muted)"
 else
-    display_volume="${VOLUME}%"
-    if [[ $VOLUME -eq 0 ]]; then
-        volumeicon="${ICONPATH/}/volume-low.svg"
-    elif [[ $VOLUME -le 25 ]]; then
-        volumeicon="${ICONPATH/}/volume-medium.svg"
-    elif [[ $VOLUME -le 50 ]]; then
-        volumeicon="${ICONPATH/}/volume-high.svg"
-    elif [[ $VOLUME -le 75 ]]; then
-        volumeicon="${ICONPATH/}/volume-high-warning.svg"
-    elif [[ $VOLUME -le 100 ]]; then
-        volumeicon="${ICONPATH/}/volume-high-danger.svg"
-    else
-        volumeicon="${ICONPATH/}/volume-overamplified.svg"
+	if [[ "$VOLUME" -gt 100 ]];then
+		display_volume="${VOLUME}% (Overdrive)"
+	else
+		display_volume="${VOLUME}%"
 	fi
+
+	if [[ "$VOLUME" -ge 1 && "$VOLUME" -le 4 ]]; then
+		roundedvol=5
+	elif [[ "$VOLUME" -ge 101 && "$VOLUME" -le 104 ]]; then
+		roundedvol=105
+	elif [[ "$VOLUME" -eq 0 ]]; then
+		roundedvol=0
+	else
+		roundedvol=$(( 5 * ((VOLUME + 2) / 5) ))
+	fi
+	volumeicon="${ICONPATH/}/vol-${roundedvol}.svg"
 fi
 
 # send notification
