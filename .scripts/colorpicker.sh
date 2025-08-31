@@ -13,7 +13,7 @@ color=$(hyprpicker -a)
 image=/tmp/${color}.png
 
 # Generate color image using ImageMagick
-magick -size 32x32 xc:"$color" "$image"
+magick -size 40x40 xc:"$color" -bordercolor "#89b4fa" -border 2x2 "$image"
 
 # Display notification with color information
 if [[ "$color" ]]; then
