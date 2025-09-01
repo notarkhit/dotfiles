@@ -11,7 +11,7 @@ fi
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-export PATH="/home/$USER/anaconda3/bin/:$PATH"
+# export PATH="/home/$USER/anaconda3/bin/:$PATH"
 bindkey '^ ' autosuggest-accept
 bindkey -s '^[g' "bash ~/.config/scripts/gitacp.sh^M"
 bindkey -s '^[u' "bash ~/.config/scripts/update.sh^M"
