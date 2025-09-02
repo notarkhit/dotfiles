@@ -64,8 +64,8 @@
 !.config/mpd/
 !.config/mpd/**/*
 
-!.config/mpd/
-!.config/mpd/**/*
+!.config/dunst/
+!.config/dunst/**/*
 
 !grimoire/
 !grimoire/**/*
