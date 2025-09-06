@@ -29,17 +29,6 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Uncomment the following line if pasting URLs and other text is messed up.
 DISABLE_MAGIC_FUNCTIONS="true"
 
-# Uncomment the following line to display red dots whilst waiting for completion.
-# You can also set it to another string to have that shown instead of the default red dots.
-# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
 plugins=(
 	git 
 	zsh-syntax-highlighting 
@@ -47,6 +36,9 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # User configuration
 
@@ -130,7 +122,6 @@ alias maria="mariadb --auto-rehash -u root -p"
 alias spd="speedtest"
 alias kcon="nvim ~/.config/kitty/kitty.conf"
 alias tmx="tmux new-session -A -s"
-# alias sl="sl;clear"
 alias slurp="slurp -b 00000044 -c 333333ff"
 alias anime="ani-cli"
 alias kys="poweroff"
@@ -143,15 +134,19 @@ alias ow="sudo pacman -S --overwrite '*'"
 alias music="ncmpcpp"
 alias gitstat="git --no-pager diff --stat"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+#console colors
+alias diff="diff --color=auto"
+alias grep="grep --color=auto"
+alias ip="ip -color=auto"
 
-source <(fzf --zsh)
-export GPG_TTY=$(tty)
+export LESSOPEN="| /usr/bin/source-highlight-esc.sh %s"
+export LESS='-R --use-color -Dd+r$Du+b$'
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
 export MANROFFOPT="-P -c"
 
+source <(fzf --zsh)
+export GPG_TTY=$(tty)
 eval "$(zoxide init zsh)"
 eval $(thefuck --alias)
 
@@ -169,21 +164,6 @@ if [[ ! -z $TMUX ]]; then
 		source <(ng completion script)
 	fi
 fi
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-# __conda_setup="$('/home/notarkhit/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-# if [ $? -eq 0 ]; then
-#     eval "$__conda_setup"
-# else
-#     if [ -f "/home/notarkhit/anaconda3/etc/profile.d/conda.sh" ]; then
-#         . "/home/notarkhit/anaconda3/etc/profile.d/conda.sh"
-#     else
-#         export PATH="/home/notarkhit/anaconda3/bin:$PATH"
-#     fi
-# fi
-# unset __conda_setup
-# <<< conda initialize <<<
 
 
 export PATH="$PATH:$HOME/grimoire"
