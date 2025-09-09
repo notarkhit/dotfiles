@@ -1,0 +1,6 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background with more padding -->
+  <rect x="1" y="1" width="30" height="30" rx="3" fill="#6b7280" stroke="#4b5563" stroke-width="1"/>
+  <!-- NUM text - larger and better positioned -->
+  <text x="16" y="20.5" text-anchor="middle" dominant-baseline="middle" fill="white" font-family="Arial Black, Arial, sans-serif" font-size="11" font-weight="900" letter-spacing="0.3">NUM</text>
+</svg>

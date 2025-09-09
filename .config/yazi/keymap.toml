@@ -1,0 +1,5 @@
+[[mgr.prepend_keymap]]
+on   = "w"
+for  = "linux"
+run  = 'shell -- swww img "$0"'
+desc = "Set hovered file as wallpaper"

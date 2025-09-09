@@ -1,0 +1,190 @@
+#!/usr/bin/env bash
+
+# A helper script to simplify common pacman operations.
+# Provides subcommands for listing, cleaning, searching, and inspecting packages.
+
+# --- Configuration ---
+# Set to true to skip all confirmation prompts for cleaning operations.
+FORCE_CLEAN=false
+
+# --- Colors ---
+COLOR_BLUE='\033[0;34m'
+COLOR_GREEN='\033[0;32m'
+COLOR_YELLOW='\033[1;33m'
+COLOR_RED='\033[0;31m'
+COLOR_NC='\033[0m' # No Color
+
+# --- Helper Functions ---
+
+# Prints the usage information and exits.
+usage() {
+    echo -e "${COLOR_GREEN}Pacman Helper Script${COLOR_NC}"
+    echo "A wrapper to simplify common package management tasks."
+    echo
+    echo -e "${COLOR_YELLOW}USAGE:${COLOR_NC}"
+    echo "  lackman <command> [options]"
+    echo
+    echo -e "${COLOR_YELLOW}COMMANDS:${COLOR_NC}"
+    echo -e "  ${COLOR_BLUE}list <type>${COLOR_NC}           List packages of a specific type."
+    echo -e "      ${COLOR_GREEN}types:${COLOR_NC} all, explicit, aur, deps, orphans"
+    echo
+    echo -e "  ${COLOR_BLUE}clean <type>${COLOR_NC}          Clean up packages or pacman cache."
+    echo -e "      ${COLOR_GREEN}types:${COLOR_NC} cache, orphans"
+    echo
+    echo -e "  ${COLOR_BLUE}search [query]${COLOR_NC}       Search repositories for a package."
+    echo -e "  ${COLOR_BLUE}search -i [query]${COLOR_NC}    Search for a package among installed packages."
+    echo
+    echo -e "  ${COLOR_BLUE}info [package]${COLOR_NC}        Show detailed information for a package."
+    echo -e "  ${COLOR_BLUE}info -r [package]${COLOR_NC}     Show packages that depend on the specified package (reverse dependencies)."
+    echo
+    echo -e "  ${COLOR_BLUE}help${COLOR_NC}                  Show this help message."
+    echo
+}
+
+# Handles the 'list' subcommand.
+# $1: The type of packages to list.
+cmd_list() {
+    case "$1" in
+        all)        pacman -Q ;;
+        explicit)   pacman -Qe ;;
+        aur)        pacman -Qm ;;
+        deps)       pacman -Qd ;;
+        orphans)    pacman -Qdt ;;
+        *)
+            echo -e "${COLOR_RED}Error: Invalid list type '$1'${COLOR_NC}"
+            echo "Valid types are: all, explicit, aur, deps, orphans"
+            exit 1
+            ;;
+    esac
+}
+
+# Handles the 'clean' subcommand.
+# $1: The type of cleaning operation to perform.
+cmd_clean() {
+    local confirm
+
+    case "$1" in
+        cache)
+            echo -e "${COLOR_YELLOW}This will remove ALL packages from your cache!${COLOR_NC}"
+            if [ "$FORCE_CLEAN" = false ]; then
+                read -p "Are you sure you want to continue? [y/N] " confirm
+                if [[ ! "$confirm" =~ ^[yY]([eE][sS])?$ ]]; then
+                    echo "Operation cancelled."
+                    exit 0
+                fi
+            fi
+            sudo pacman -Scc
+            ;;
+        orphans)
+            # -q flag makes pacman quiet, only printing package names.
+            orphans=$(pacman -Qdtq)
+            if [ -z "$orphans" ]; then
+                echo -e "${COLOR_GREEN}No orphaned packages found.${COLOR_NC}"
+                exit 0
+            fi
+
+            echo "The following orphaned packages will be removed:"
+            echo -e "${COLOR_YELLOW}${orphans}${COLOR_NC}"
+            if [ "$FORCE_CLEAN" = false ]; then
+                read -p "Are you sure you want to continue? [y/N] " confirm
+                if [[ ! "$confirm" =~ ^[yY]([eE][sS])?$ ]]; then
+                    echo "Operation cancelled."
+                    exit 0
+                fi
+            fi
+            # -R removes, -n prevents saving config files, -s removes dependencies recursively.
+            sudo pacman -Rns $orphans
+            ;;
+        *)
+            echo -e "${COLOR_RED}Error: Invalid clean type '$1'${COLOR_NC}"
+            echo "Valid types are: cache, orphans"
+            exit 1
+            ;;
+    esac
+}
+
+# Handles the 'search' subcommand.
+# $1: Optional flag (-i for installed).
+# $2: The search query.
+cmd_search() {
+    if [[ "$1" == "-i" || "$1" == "--installed" ]]; then
+        shift # Move past the flag
+        if [ -z "$1" ]; then
+             echo -e "${COLOR_RED}Error: Search query cannot be empty.${COLOR_NC}"
+             exit 1
+        fi
+        pacman -Qs "$@"
+    else
+        if [ -z "$1" ]; then
+             echo -e "${COLOR_RED}Error: Search query cannot be empty.${COLOR_NC}"
+             exit 1
+        fi
+        pacman -Ss "$@"
+    fi
+}
+
+# Handles the 'info' subcommand.
+# $1: Optional flag (-r for reverse dependencies).
+# $2: The package name.
+cmd_info() {
+    if [[ "$1" == "-r" || "$1" == "--reverse-deps" ]]; then
+        shift # Move past the flag
+        if [ -z "$1" ]; then
+             echo -e "${COLOR_RED}Error: Package name cannot be empty.${COLOR_NC}"
+             exit 1
+        fi
+        if ! command -v pactree &> /dev/null; then
+            echo -e "${COLOR_RED}Error: 'pactree' is not installed.${COLOR_NC}"
+            echo "Please install the 'pacman-contrib' package to use this feature."
+            exit 1
+        fi
+		echo -e "Dependency tree [${COLOR_YELLOW}$1${COLOR_NC}]:"
+        pactree -r "$1"
+    else
+        if [ -z "$1" ]; then
+             echo -e "${COLOR_RED}Error: Package name cannot be empty.${COLOR_NC}"
+             exit 1
+        fi
+        # First, try to get info on an installed package. If that fails,
+        # try to get info from the sync repositories.
+        pacman -Qi "$1" || pacman -Si "$1"
+    fi
+}
+
+
+# --- Main Script Logic ---
+
+# Check if any arguments are provided.
+if [ "$#" -eq 0 ]; then
+    usage
+    exit 1
+fi
+
+# Route the first argument to the correct subcommand function.
+case "$1" in
+    list)
+        shift
+        cmd_list "$@"
+        ;;
+    clean|remove)
+        shift
+        cmd_clean "$@"
+        ;;
+    search)
+        shift
+        cmd_search "$@"
+        ;;
+    info|show)
+        shift
+        cmd_info "$@"
+        ;;
+    -h|--help|help)
+        usage
+        ;;
+    *)
+        echo -e "${COLOR_RED}Error: Unknown command '$1'${COLOR_NC}"
+        usage
+        exit 1
+        ;;
+esac
+

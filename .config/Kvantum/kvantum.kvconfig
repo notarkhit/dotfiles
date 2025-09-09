@@ -1,2 +1,5 @@
 [General]
 theme=Utterly-Nord
+
+[Applications]
+Default=brave
