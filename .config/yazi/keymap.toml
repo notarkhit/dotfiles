@@ -3,3 +3,13 @@ on   = "w"
 for  = "linux"
 run  = 'shell -- swww img "$0"'
 desc = "Set hovered file as wallpaper"
+
+[[mgr.append_keymap]]
+on = ["g", "j"]
+run = "plugin zoxide"
+desc = "Jump to a directory via zoxide"
+
+[[mgr.append_keymap]]
+on = "<F1>"
+run = "tasks:show"
+desc = "Show task manager"

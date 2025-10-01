@@ -5,17 +5,17 @@ function M:peek(job)
 	local preview_width = 55
 
 	local child = Command("glow")
-		:args({
-			"--style",
-			"dark",
-			"--width",
-			tostring(preview_width),  -- Use fixed width instead of job.area.w
-			tostring(job.file.url),
-		})
-		:env("CLICOLOR_FORCE", "1")
-		:stdout(Command.PIPED)
-		:stderr(Command.PIPED)
-		:spawn()
+			:arg({
+				"--style",
+				"dark",
+				"--width",
+				tostring(preview_width), -- Use fixed width instead of job.area.w
+				tostring(job.file.url),
+			})
+			:env("CLICOLOR_FORCE", "1")
+			:stdout(Command.PIPED)
+			:stderr(Command.PIPED)
+			:spawn()
 
 	if not child then
 		return require("code").peek(job)
@@ -39,10 +39,10 @@ function M:peek(job)
 
 	child:start_kill()
 	if job.skip > 0 and i < job.skip + limit then
-		ya.manager_emit("peek", { 
-			tostring(math.max(0, i - limit)), 
+		ya.manager_emit("peek", {
+			tostring(math.max(0, i - limit)),
 			only_if = job.file.url,
-			upper_bound = true 
+			upper_bound = true
 		})
 	else
 		lines = lines:gsub("\t", string.rep(" ", PREVIEW.tab_size))
