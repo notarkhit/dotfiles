@@ -10,4 +10,4 @@ if [[ $# < 2 ]] ; then
 	liststop=$1
 fi
 
-mpv $(printf " *%02d.mp4" $(seq $1 $2))
+mpv $(printf " *%02d.*" $(seq $1 $2))
