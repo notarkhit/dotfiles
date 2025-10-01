@@ -18,7 +18,7 @@ shape = "Block"
 save_to_clipboard = true
 
 [window]
-opacity = 0.8
+opacity = 0.7
 startup_mode = "Maximized"
 decorations = "none"
 dynamic_title = true
@@ -52,15 +52,15 @@ osc52 = "CopyPaste"
 [mouse]
 hide_when_typing = true
 
-# [keyboard]
-# bindings = [
-#     {key = "J", mods ="Alt|Shift", action = "ScrollLineDown"},
-#     {key = "K", mods ="Alt|Shift", action =  "ScrollLineUp" },
-#     {key = "V", mods ="Alt", action =  "ToggleViMode" },
+[keyboard]
+bindings = [
+    {key = "J", mods ="Alt", action = "ScrollLineDown"},
+    {key = "K", mods ="Alt", action =  "ScrollLineUp" },
+    {key = "V", mods ="Alt", action =  "ToggleViMode" },
 #     {key = "Space", mods ="Control|Shift", action =  "None" },
 #     {key = "F12", mods ="Super", action =  "None" },
-# ]
-#
+]
+
 [general]
 import = [
     # "~/.config/alacritty/themes/themes/alabaster_dark.toml",

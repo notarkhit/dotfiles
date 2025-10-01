@@ -38,7 +38,11 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+if [[ -z $DISPLAY && $TERM == linux ]]; then
+  [[ -r ~/.p10k.zsh.tty ]] && source ~/.p10k.zsh.tty
+else
+  [[ -r ~/.p10k.zsh.gui ]] && source ~/.p10k.zsh.gui
+fi
 
 # User configuration
 
