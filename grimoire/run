@@ -30,6 +30,9 @@ case "$extension" in
 	java)
 		javac $filename && java $filename
 		;;
+	R)
+		Rscript $1
+		;;
 	*)
 		echo -e "${red}ERROR:${nocolor} Unsupported file type: $extension"
 		exit 1
