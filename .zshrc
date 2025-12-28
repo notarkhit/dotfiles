@@ -139,7 +139,6 @@ alias ow="sudo pacman -S --overwrite '*'"
 alias music="ncmpcpp"
 alias gitstat="git --no-pager diff --stat"
 
-
 #console colors
 alias diff="diff --color=auto"
 alias grep="grep --color=auto"
@@ -172,5 +171,6 @@ fi
 
 
 export PATH="$PATH:$HOME/grimoire"
+export PATH="$PATH:/usr/lib/emscripten/"
 export CLASSPATH=/usr/share/java/mariadb-jdbc/mariadb-java-client.jar:.
 
