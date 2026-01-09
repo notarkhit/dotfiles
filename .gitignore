@@ -75,3 +75,6 @@
 
 !.icons/
 !.icons/**/*
+
+!.config/ashell/
+!.config/ashell/**/*
