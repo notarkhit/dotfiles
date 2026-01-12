@@ -2,13 +2,13 @@ log_level = "warn"
 # outputs = { Targets = ["eDP-1"] }
 outputs = "All"
 position = "Top"
-app_launcher_cmd = "walker"
+app_launcher_cmd = "rofi -show drun"
 enable_esc_key = true
 
 [modules]
 left = [ [ "appLauncher", "Updates", "Workspaces", "WindowTitle" ] ]
 center = [ "Clock" ]
-right = [ "SystemInfo", [ "Settings" ] ]
+right = [ ["MediaPlayer"],["SystemInfo"], [ "Settings" ] ]
 
 
 [updates]
@@ -41,22 +41,26 @@ bluetooth_more_cmd = "blueman-manager"
 
 [appearance]
 style = "Solid"
+opacity = 0.8
 
 primary_color = "#7aa2f7"
 success_color = "#9ece6a"
 text_color = "#a9b1d6"
+
 workspace_colors = [ "#7aa2f7", "#9ece6a" ]
-special_workspace_colors = [ "#7aa2f7", "#9ece6a" ]
 
 [appearance.danger_color]
 base = "#f7768e"
 weak = "#e0af68"
 
 [appearance.background_color]
-base = "#1a1b26"
+base = "#000000"
 weak = "#24273a"
 strong = "#414868"
 
 [appearance.secondary_color]
 base = "#0c0d14"
 
+[appearance.menu]
+opacity = 0.7
+# backdrop = 0.3
