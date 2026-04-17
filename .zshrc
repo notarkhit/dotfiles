@@ -104,10 +104,12 @@ function nvm_init() {
 	# source /usr/share/nvm/nvm.sh
 	# source /usr/share/nvm/install-nvm-exec
 }
+function rcv() {
+	while [[ $(ls ~/.local/share/Trash/files/ | wc -l) -ne 0  ]]; do trash-restore ; done
+}
 
 #aliases
 
-alias zshconfig="mate ~/.zshrc"
 alias CLEAR="clear"
 alias lf="yazi"
 alias ranger="yazi"
@@ -136,7 +138,6 @@ alias nano="nvim"
 alias code="nvim"
 alias emacs="nvim"
 alias ow="sudo pacman -S --overwrite '*'"
-alias music="ncmpcpp"
 alias gitstat="git --no-pager diff --stat"
 
 #console colors
@@ -144,11 +145,15 @@ alias diff="diff --color=auto"
 alias grep="grep --color=auto"
 alias ip="ip -color=auto"
 
+alias lsblk="lsblk | bat -l conf -p"
+
 export LESSOPEN="| /usr/bin/source-highlight-esc.sh %s"
 export LESS='-R --use-color -Dd+r$Du+b$'
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
 export MANROFFOPT="-P -c"
+export EDITOR=nvim
 
+# source <(opencode completion)
 source <(fzf --zsh)
 export GPG_TTY=$(tty)
 eval "$(zoxide init zsh)"
@@ -174,3 +179,8 @@ export PATH="$PATH:$HOME/grimoire"
 export PATH="$PATH:/usr/lib/emscripten/"
 export CLASSPATH=/usr/share/java/mariadb-jdbc/mariadb-java-client.jar:.
 
+
+# opencode
+export PATH=/home/notarkhit/.opencode/bin:$PATH
+export PATH="$HOME/.local/bin:$PATH"
+export PATH=/root/.bun/bin:/home/notarkhit/.local/bin:/home/notarkhit/.opencode/bin:/home/notarkhit/anaconda3/bin/:/usr/local/sbin:/usr/local/bin:/usr/bin:/opt/cuda/bin:/usr/lib/emscripten:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin:/home/notarkhit/grimoire:/usr/lib/emscripten/

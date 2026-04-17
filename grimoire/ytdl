@@ -1,0 +1,25 @@
+#!/bin/bash
+
+if [[ $# -eq 0 ]]; then
+	read -p "Enter the url for the download: " URL
+else
+	URL=$1
+fi
+
+# yt-dlp \
+#   -f "bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]" \
+#   --merge-output-format mp4 \
+#   -N 32 \
+#   $URL
+
+
+yt-dlp \
+  -f "bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]" \
+  --merge-output-format mp4 \
+  --embed-subs \
+  --sub-langs "en.*" \
+  --write-subs \
+  --audio-multistreams \
+  -N 32 \
+  "$URL"
+

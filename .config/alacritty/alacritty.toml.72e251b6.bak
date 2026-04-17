@@ -68,8 +68,3 @@ import = [
     # "~/.config/alacritty/tokyo-night.toml",
     "~/.config/alacritty/fonts.toml",
 ]
-#
-# [[keyboard.bindings]]
-# key = "Return"
-# mods = "Shift"
-# chars = "\u001B\r"
