@@ -74,78 +74,10 @@ function preexec(){
     fi
 }
 
+for file in ~/.config/zsh/*.zsh(N); do
+    source "$file"
+done
 
-# yazi shell wrapper
-function yy() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		builtin cd -- "$cwd"
-	fi
-	rm -f -- "$tmp"
-}
-
-# conda activation
-function activate_conda() {
-    local current_dir_name=$(basename "$PWD")
-    local is_env=$(awk -F/ -v name="$current_dir_name" '$NF == name {print $NF}' ~/.conda/environments.txt )
-	source "/home/$USER/anaconda3/etc/profile.d/conda.sh" &> /dev/null
-    if [[ ! -z $is_env ]]; then
-        conda activate $current_dir_name &> /dev/null
-     else
-         conda activate base
-    fi
-}
-
-function nvm_init() {
-	# source /usr/share/nvm/init-nvm.sh
-	[ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
-	source /usr/share/nvm/init-nvm.sh
-	# source /usr/share/nvm/nvm.sh
-	# source /usr/share/nvm/install-nvm-exec
-}
-function rcv() {
-	while [[ $(ls ~/.local/share/Trash/files/ | wc -l) -ne 0  ]]; do trash-restore ; done
-}
-
-#aliases
-
-alias CLEAR="clear"
-alias lf="yazi"
-alias ranger="yazi"
-alias hconf="nvim ~/.config/hypr/hyprland.conf"
-alias cat="bat"
-alias nvfix="rm ~/.local/share/nvim -rf && rm ~/.local/state/nvim -rf"
-alias tt="toipe"
-alias cd="z"
-alias ls="eza --icons always --hyperlink"
-alias lsl="eza --icons always --total-size --hyperlink -l"
-alias asdf="exit"
-alias rc="nvim ~/.zshrc"
-alias pacss="pacman -Ss"
-alias ff="pokeget charizard --hide-name | fastfetch --file-raw -"
-alias maria="mariadb --auto-rehash -u root -p"
-alias spd="speedtest"
-alias kcon="nvim ~/.config/kitty/kitty.conf"
-alias tmx="tmux new-session -A -s"
-alias slurp="slurp -b 00000044 -c 333333ff"
-alias anime="ani-cli"
-alias anidl="ani-cli -q 1080p -d -r"
-alias kys="poweroff"
-alias vi="nvim"
-alias vim="nvim"
-alias nano="nvim"
-alias code="nvim"
-alias emacs="nvim"
-alias ow="sudo pacman -S --overwrite '*'"
-alias gitstat="git --no-pager diff --stat"
-
-#console colors
-alias diff="diff --color=auto"
-alias grep="grep --color=auto"
-alias ip="ip -color=auto"
-
-alias lsblk="lsblk | bat -l conf -p"
 
 export LESSOPEN="| /usr/bin/source-highlight-esc.sh %s"
 export LESS='-R --use-color -Dd+r$Du+b$'
@@ -176,6 +108,7 @@ fi
 
 
 export PATH="$PATH:$HOME/grimoire"
+export PATH="$PATH:$HOME/.cargo/bin/"
 export PATH="$PATH:/usr/lib/emscripten/"
 export CLASSPATH=/usr/share/java/mariadb-jdbc/mariadb-java-client.jar:.
 
@@ -183,4 +116,3 @@ export CLASSPATH=/usr/share/java/mariadb-jdbc/mariadb-java-client.jar:.
 # opencode
 export PATH=/home/notarkhit/.opencode/bin:$PATH
 export PATH="$HOME/.local/bin:$PATH"
-export PATH=/root/.bun/bin:/home/notarkhit/.local/bin:/home/notarkhit/.opencode/bin:/home/notarkhit/anaconda3/bin/:/usr/local/sbin:/usr/local/bin:/usr/bin:/opt/cuda/bin:/usr/lib/emscripten:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin:/home/notarkhit/grimoire:/usr/lib/emscripten/

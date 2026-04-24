@@ -78,3 +78,6 @@
 
 !.config/ashell/
 !.config/ashell/**/*
+
+!.config/zsh/
+!.config/zsh/**/*
