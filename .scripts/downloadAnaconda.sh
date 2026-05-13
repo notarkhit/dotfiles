@@ -8,7 +8,7 @@ RESET="\033[0m"
 prefix="${BLUE}::${RESET}"
 
 echo -e "${BLUE}Anaconda installer$RESET"
-read -p "Do you want to download the lastest Anaconda installer? [y/N]: " choice 
+read -p "Do you want to download the latest Anaconda installer? [y/N]: " choice 
 choice=${choice,,}
 
 if [[ $choice != "y" ]];then
@@ -18,8 +18,14 @@ fi
 
 echo -e "${prefix}Fetching the latest anaconda installer info"
 latest=$(curl -s https://repo.anaconda.com/archive/ | \
-         grep -o 'Anaconda3-[0-9]\{4\}\.[0-9]\{2\}-0-Linux-x86_64.sh' | \
+         grep -o 'Anaconda3-[0-9]\{4\}\.[0-9]\{2\}-[0-9]\+-Linux-x86_64.sh' | \
          sort -V | tail -1)
+
+if [[ -z "$latest" ]]; then
+	echo -e "${RED}Could not determine the latest Anaconda installer${RESET}"
+	exit 1
+fi
+
 echo -e "latest version found: ${BLUE}${latest}${RESET}"
 
 mkdir -p "$HOME/Downloads"

@@ -46,7 +46,7 @@ function yeet() {
 	if [[ $# -ne 1 ]];then
 		echo "Please provide 1 arguement"
 	else
-		wl-paste >> $1
+		wl-paste > $1
 	fi
 }
 
