@@ -78,7 +78,6 @@ for file in ~/.config/zsh/*.zsh(N); do
     source "$file"
 done
 
-
 export LESSOPEN="| /usr/bin/source-highlight-esc.sh %s"
 export LESS='-R --use-color -Dd+r$Du+b$'
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
@@ -106,12 +105,10 @@ if [[ ! -z $TMUX ]]; then
 	fi
 fi
 
-
 export PATH="$PATH:$HOME/grimoire"
 export PATH="$PATH:$HOME/.cargo/bin/"
 export PATH="$PATH:/usr/lib/emscripten/"
 export CLASSPATH=/usr/share/java/mariadb-jdbc/mariadb-java-client.jar:.
-
 
 # opencode
 export PATH=/home/notarkhit/.opencode/bin:$PATH
