@@ -8,6 +8,16 @@ use = "boydaihungst/mediainfo"
 rev = "49f5ab7"
 hash = "6e3b5e58f985cc2d625e0030dc35b1b2"
 
+[[plugin.deps]]
+use = "yazi-rs/plugins:piper"
+rev = "5d5c480"
+hash = "384464b6df8cb807425c521f8cd790f3"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:md"
+rev = "5d5c480"
+hash = "99aa06d3014798d86001c324468d497f"
+
 [[flavor.deps]]
 use = "BennyOe/tokyo-night"
 rev = "8e6296f"
