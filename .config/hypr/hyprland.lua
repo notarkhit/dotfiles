@@ -1,63 +1,63 @@
 ------------------
 ---- MONITORS ----
 ------------------
-require("monitors")
+require("modules.monitors")
 
 ---------------------
 ---- MY PROGRAMS ----
 ---------------------
-require("programs")
+require("modules.programs")
 
 
 -------------------
 ---- AUTOSTART ----
 -------------------
-require("autostart")
+require("modules.autostart")
 
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
 -------------------------------
-require("env")
+require("modules.env")
 
 -----------------------
 ----- PERMISSIONS -----
 -----------------------
-require("permissions")
+require("modules.permissions")
 
 -----------------------
 ---- LOOK AND FEEL ----
 -----------------------
-require("ux")
+require("modules.ux")
 
 -----------------------
 ----  ANIMATIONS   ----
 -----------------------
-require("animations")
+require("modules.animations")
 
 -----------------
 ---- LAYOUTS ----
 -----------------
-require("layouts")
+require("modules.layouts")
 
 ----------------
 ----  MISC  ----
 ----------------
-require("misc")
+require("modules.misc")
 
 ---------------
 ---- INPUT ----
 ---------------
-require("input")
+require("modules.input")
 
 ---------------------
 ---- KEYBINDINGS ----
 ---------------------
 
-require("keybindings")
+require("modules.keybindings")
 
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
 --------------------------------
-require("workspacerules")
+require("modules.workspacerules")
 
-require("windowrules")
+require("modules.windowrules")

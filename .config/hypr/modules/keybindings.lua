@@ -6,10 +6,10 @@ local mainMod = "SUPER"
 -- App launchers
 hl.bind("ALT + SPACE", hl.dsp.exec_cmd(menu))
 hl.bind("ALT + K", hl.dsp.exec_cmd(term .. " -c NONE"))
-hl.bind("ALT + SHIFT + RETURN", hl.dsp.exec_cmd(floatingTerm))
+-- hl.bind("ALT + SHIFT + RETURN", hl.dsp.exec_cmd(floatingTerm))
 
 -- SUPER + SHIFT
-hl.bind(mainMod .. " + SHIFT + RETURN", hl.dsp.exec_cmd(floatingTerminal))
+-- hl.bind(mainMod .. " + SHIFT + RETURN", hl.dsp.exec_cmd(floatingTerminal))
 hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("~/.scripts/notify-battery.sh"))
 hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("hyprctl reload"))
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("killall ashell || ashell &"))
