@@ -60,4 +60,5 @@ else
 fi
 
 # send notification
-dunstify -r 9993 -t 3000 -a "Volume" -h int:value:"$VOLUME" "Volume: ${display_volume}" -i $volumeicon -u "$urgency"
+# dunstify -r 9993 -t 3000 -a "Volume" -h int:value:"$VOLUME" "Volume: ${display_volume}" -i $volumeicon -u "$urgency"
+# notify-send -r 9993 -t 3000 -a "Volume" -h int:value:"$VOLUME" "Volume: ${display_volume}" -i $volumeicon -u "$urgency"

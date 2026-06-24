@@ -19,13 +19,14 @@ function notify_brightness() {
 	local roundedbr=$(( 5 * ((BRIGHTNESS_PERCENT + 2) / 5) ))
 	local icon="/home/notarkhit/.icons/custom/brightness/br-${roundedbr}.svg"
 
-	dunstify -r 9993 -t 3000 -a "Brightness" -h int:value:"$BRIGHTNESS_PERCENT" "Brightness: ${BRIGHTNESS_PERCENT}%" -i $icon
+	# notify-send -r 9993 -t 3000 -a "Brightness" -h int:value:"$BRIGHTNESS_PERCENT" "Brightness: ${BRIGHTNESS_PERCENT}%" -i $icon
+
 }
 
 function notify_gamma() {
     local GAMMA_VAL
     GAMMA_VAL=$(cat "$GAMMA_FILE")
-    dunstify -r 9993 -t 3000 -a "Gamma" -h int:value:"$GAMMA_VAL" "Gamma: ${GAMMA_VAL}" -i "/home/notarkhit/.icons/custom/brightness/br-50.svg"
+    notify-send -r 9993 -t 3000 -a "Gamma" -h int:value:"$GAMMA_VAL" "Gamma: ${GAMMA_VAL}" -i "/home/notarkhit/.icons/custom/brightness/br-50.svg"
 }
 
 # Check command line arguments
