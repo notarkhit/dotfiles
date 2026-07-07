@@ -77,13 +77,26 @@ hl.window_rule({
 -- Showmethekey
 hl.window_rule({
 	name  = "showmethekey",
-	match = { class = "showmethekey-gtk" },
+	match = { class = "one.alynx.showmethekey" },
 	float = true,
 	pin   = true,
 	size  = { "monitor_w*0.4", "monitor_h*0.1" },
 	move  = { "monitor_w-window_w", "monitor_h-window_h" },
 })
 
+-- Settings
+hl.window_rule({
+	name  = "settings",
+	match = { title = "Settings" },
+	float = true,
+})
+
+-- Figma
+hl.window_rule({
+	name    = "figma",
+	match   = { title = ".*Figma.*" },
+	opacity = "1 override",
+})
 -- Center all floating windows
 hl.window_rule({
 	name      = "centerfloating",
@@ -91,6 +104,7 @@ hl.window_rule({
 	center    = true,
 	animation = "slide",
 	max_size  = { "monitor_w*0.8", "monitor_h*0.8" },
+	-- min_size  = { "monitor_w*0.5", "monitor_h*0.5" },
 })
 
 -- Ueberzug
@@ -120,8 +134,25 @@ hl.window_rule({
 	opaque = true,
 })
 
+-- Waydroid
+hl.window_rule({
+	name = "Waydroid",
+	match = { title = "Waydroid" },
+	float = true,
+	size = { "monitor_w*0.3", "monitor_h*0.9" },
+	move = { "monitor_w-window_w", "monitor-h*0.1" },
+})
+
+
+-- flameshot
+hl.window_rule({
+	name = "flameshot",
+	match = { class = "flameshot" },
+	fullscreen = true,
+	no_anim = true,
+})
+
 -- Opaque windows
-hl.window_rule({ match = { title = "^(\\* Figma \\*)$" }, opaque = true })
 hl.window_rule({ match = { title = "presenterm" }, opaque = true })
 hl.window_rule({ match = { title = "^(presenterm.*)$" }, opaque = true })
 hl.window_rule({ match = { class = "floorp" }, opaque = true })
