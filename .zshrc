@@ -11,8 +11,7 @@ fi
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-export PATH="/home/$USER/anaconda3/bin/:$PATH"
-bindkey '^ ' autosuggest-accept
+# export PATH="/home/$USER/anaconda3/bin/:$PATH"
 bindkey -s '^[g' "bash ~/.config/scripts/gitacp.sh^M"
 bindkey -s '^[u' "bash ~/.config/scripts/update.sh^M"
 bindkey -s '^[b' "systemctl --user restart pipewire pipewire-pulse wireplumber"
@@ -36,6 +35,8 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+
+bindkey '^[[Z' autosuggest-accept
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 if [[ -z $DISPLAY && $TERM == linux ]]; then
@@ -78,6 +79,8 @@ for file in ~/.config/zsh/*.zsh(N); do
     source "$file"
 done
 
+fpath+=~/.local/share/zsh/.zfunc
+
 export LESSOPEN="| /usr/bin/source-highlight-esc.sh %s"
 export LESS='-R --use-color -Dd+r$Du+b$'
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
@@ -85,6 +88,7 @@ export MANROFFOPT="-P -c"
 export EDITOR=nvim
 
 # source <(opencode completion)
+# source <(flutter bash-completion)
 source <(fzf --zsh)
 export GPG_TTY=$(tty)
 eval "$(zoxide init zsh)"
@@ -110,6 +114,7 @@ export PATH="$PATH:$HOME/.cargo/bin/"
 export PATH="$PATH:/usr/lib/emscripten/"
 export CLASSPATH=/usr/share/java/mariadb-jdbc/mariadb-java-client.jar:.
 
-# opencode
-export PATH=/home/notarkhit/.opencode/bin:$PATH
-export PATH="$HOME/.local/bin:$PATH"
+
+export PATH="/home/notarkhit/.local/bin:$PATH"
+
+
