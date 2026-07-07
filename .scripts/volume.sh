@@ -30,35 +30,3 @@ elif [[ "$1" == "mute" ]]; then
     pactl set-sink-mute @DEFAULT_SINK@ toggle
 fi
 
-VOLUME=$(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' | sed 's/%//')
-MUTED=$(get_muted)
-ICONPATH="/home/notarkhit/.icons/custom/volume/"
-local urgency="normal"
-
-# select icons
-if [[ "$MUTED" == "yes" ]]; then
-    volumeicon="${ICONPATH/}/muted.svg"
-	display_volume="${VOLUME}% (Muted)"
-else
-	if [[ "$VOLUME" -gt 100 ]];then
-		display_volume="${VOLUME}% (Overdrive)"
-		urgency="critical"
-	else
-		display_volume="${VOLUME}%"
-	fi
-
-	if [[ "$VOLUME" -ge 1 && "$VOLUME" -le 4 ]]; then
-		roundedvol=5
-	elif [[ "$VOLUME" -ge 101 && "$VOLUME" -le 104 ]]; then
-		roundedvol=105
-	elif [[ "$VOLUME" -eq 0 ]]; then
-		roundedvol=0
-	else
-		roundedvol=$(( 5 * ((VOLUME + 2) / 5) ))
-	fi
-	volumeicon="${ICONPATH/}/vol-${roundedvol}.svg"
-fi
-
-# send notification
-# dunstify -r 9993 -t 3000 -a "Volume" -h int:value:"$VOLUME" "Volume: ${display_volume}" -i $volumeicon -u "$urgency"
-# notify-send -r 9993 -t 3000 -a "Volume" -h int:value:"$VOLUME" "Volume: ${display_volume}" -i $volumeicon -u "$urgency"
