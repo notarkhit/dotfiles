@@ -10,4 +10,11 @@ if [[ $# < 2 ]] ; then
 	liststop=$1
 fi
 
+
+# if [[ $3 -eq 1 ]];then
+# 	mpv $(printf " *%03d.*" $(seq $1 $2))
+# 	exit
+# fi
+
+
 mpv $(printf " *%02d.*" $(seq $1 $2))

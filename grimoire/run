@@ -30,6 +30,9 @@ case "$extension" in
 	java)
 		javac $filename && java $filename
 		;;
+	rs)
+		rustc $filename -o $name && ./$name && rm $name
+		;;
 	R|r)
 		Rscript $1
 		;;
