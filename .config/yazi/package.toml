@@ -18,6 +18,11 @@ use = "yazi-rs/plugins:md"
 rev = "5d5c480"
 hash = "99aa06d3014798d86001c324468d497f"
 
+[[plugin.deps]]
+use = "uhs-robert/sshfs"
+rev = "a8b8903"
+hash = "8c1b36103121a66b37308afaf7124575"
+
 [[flavor.deps]]
 use = "BennyOe/tokyo-night"
 rev = "8e6296f"

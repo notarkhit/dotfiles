@@ -4,6 +4,11 @@ for  = "linux"
 run  = 'shell -- awww img "$0"'
 desc = "Set hovered file as wallpaper"
 
+[[mgr.prepend_keymap]]
+on = ["M","s"]
+run = "plugin sshfs -- menu"
+desc = "Open SSHFS options"
+
 [[mgr.append_keymap]]
 on = ["g", "j"]
 run = "plugin zoxide"
@@ -13,3 +18,5 @@ desc = "Jump to a directory via zoxide"
 on = "<F1>"
 run = "tasks:show"
 desc = "Show task manager"
+
+
