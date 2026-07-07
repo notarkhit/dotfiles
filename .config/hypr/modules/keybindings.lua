@@ -6,14 +6,17 @@ local mainMod = "SUPER"
 -- App launchers
 hl.bind("ALT + SPACE", hl.dsp.exec_cmd(menu))
 hl.bind("ALT + K", hl.dsp.exec_cmd(term .. " -c NONE"))
--- hl.bind("ALT + SHIFT + RETURN", hl.dsp.exec_cmd(floatingTerm))
+hl.bind("ALT + RETURN", hl.dsp.exec_cmd(term))
+hl.bind("ALT + SHIFT + RETURN", hl.dsp.exec_cmd(floatingTerm))
 
 -- SUPER + SHIFT
--- hl.bind(mainMod .. " + SHIFT + RETURN", hl.dsp.exec_cmd(floatingTerminal))
+hl.bind(mainMod .. " + SHIFT + RETURN", hl.dsp.exec_cmd(floatingTerminal))
 hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("~/.scripts/notify-battery.sh"))
 hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("hyprctl reload"))
-hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("killall ashell || ashell &"))
+-- hl.bind(mainMod .. " + SHIFT + W",hl.dsp.exec_cmd("quickshell -c ~/.config/hebi kill || quickshell -c ~/.config/hebi -d"))
+hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("~/.local/bin/hebi shell -td"))
 hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd(screenshot))
+hl.bind(mainMod .. " + SHIFT + period", hl.dsp.exec_cmd(emojiMenu))
 hl.bind(mainMod .. " + SHIFT + V",
 	hl.dsp.exec_cmd(
 		'cliphist list | rofi -dmenu -i -p "Clipboard" -theme-str "window { height:35%;}" | cliphist decode | wl-copy'))
@@ -27,13 +30,13 @@ hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + X", hl.dsp.exec_cmd(browser .. " --private-window"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + I", hl.dsp.exec_cmd("floorp"))
+hl.bind(mainMod .. " + T", hl.dsp.layout("togglesplit"))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(bluetooth))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(emojiMenu))
-hl.bind(mainMod .. " + period", hl.dsp.exec_cmd(emojiMenu))
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("~/.scripts/colorpicker.sh"))
--- hl.bind(mainMod .. " + F", hl.dsp.fullscreen())
-hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
+hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
+hl.bind(mainMod .. " + escape", hl.dsp.exec_cmd("hyprlock"))
 hl.bind(mainMod .. " + C", hl.dsp.exec_cmd(picker))
 hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("flameshot screen"))
 hl.bind(mainMod .. " + O", hl.dsp.exec_cmd(music))
@@ -47,6 +50,15 @@ hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + up", hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + down", hl.dsp.focus({ direction = "down" }))
+
+hl.bind(mainMod .. " + h", hl.dsp.focus({ direction = "left" }))
+hl.bind(mainMod .. " + l", hl.dsp.focus({ direction = "right" }))
+hl.bind(mainMod .. " + k", hl.dsp.focus({ direction = "up" }))
+hl.bind(mainMod .. " + j", hl.dsp.focus({ direction = "down" }))
+
+-- Scrolling layout
+-- hl.bind(mainMod .. " + period", hl.dsp.layout("move +col"))
+-- hl.bind(mainMod .. " + comma", hl.dsp.layout("swapcol l"))
 
 -- Switch workspaces / move windows (mainMod + [0-9])
 for i = 1, 10 do
@@ -72,6 +84,11 @@ hl.bind(mainMod .. " + SHIFT + left", hl.dsp.window.move({ direction = "left" })
 hl.bind(mainMod .. " + SHIFT + right", hl.dsp.window.move({ direction = "right" }))
 hl.bind(mainMod .. " + SHIFT + up", hl.dsp.window.move({ direction = "up" }))
 hl.bind(mainMod .. " + SHIFT + down", hl.dsp.window.move({ direction = "down" }))
+
+hl.bind(mainMod .. " + SHIFT + h", hl.dsp.window.move({ direction = "left" }))
+hl.bind(mainMod .. " + SHIFT + l", hl.dsp.window.move({ direction = "right" }))
+hl.bind(mainMod .. " + SHIFT + k", hl.dsp.window.move({ direction = "up" }))
+hl.bind(mainMod .. " + SHIFT + j", hl.dsp.window.move({ direction = "down" }))
 
 -- Cycle focus
 hl.bind(mainMod .. " + Tab", function()
