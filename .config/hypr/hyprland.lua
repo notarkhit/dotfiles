@@ -55,6 +55,11 @@ require("modules.input")
 
 require("modules.keybindings")
 
+----------------
+--- GESTURES ---
+----------------
+require("modules.gestures")
+
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
 --------------------------------
