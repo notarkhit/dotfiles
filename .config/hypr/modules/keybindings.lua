@@ -4,8 +4,7 @@
 local mainMod = "SUPER"
 
 -- App launchers
-hl.bind("ALT + SPACE", hl.dsp.exec_cmd(menu))
-hl.bind("ALT + K", hl.dsp.exec_cmd(term .. " -c NONE"))
+hl.bind("ALT + SPACE", hl.dsp.exec_cmd(menu .. " drun"))
 hl.bind("ALT + RETURN", hl.dsp.exec_cmd(term))
 hl.bind("ALT + SHIFT + RETURN", hl.dsp.exec_cmd(floatingTerm))
 
@@ -16,10 +15,8 @@ hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("hyprctl reload"))
 -- hl.bind(mainMod .. " + SHIFT + W",hl.dsp.exec_cmd("quickshell -c ~/.config/hebi kill || quickshell -c ~/.config/hebi -d"))
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("~/.local/bin/hebi shell -td"))
 hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd(screenshot))
-hl.bind(mainMod .. " + SHIFT + period", hl.dsp.exec_cmd(emojiMenu))
-hl.bind(mainMod .. " + SHIFT + V",
-	hl.dsp.exec_cmd(
-		'cliphist list | rofi -dmenu -i -p "Clipboard" -theme-str "window { height:35%;}" | cliphist decode | wl-copy'))
+hl.bind(mainMod .. " + SHIFT + period", hl.dsp.exec_cmd(menu .. " emoji"))
+hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd(menu .. " clipboard"))
 hl.bind(mainMod .. " + SHIFT + I", hl.dsp.exec_cmd("floorp --private-window"))
 
 -- SUPER + key
@@ -57,8 +54,7 @@ hl.bind(mainMod .. " + k", hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + j", hl.dsp.focus({ direction = "down" }))
 
 -- Scrolling layout
--- hl.bind(mainMod .. " + period", hl.dsp.layout("move +col"))
--- hl.bind(mainMod .. " + comma", hl.dsp.layout("swapcol l"))
+hl.bind(mainMod .. " + comma", hl.dsp.layout("swapcol l"))
 
 -- Switch workspaces / move windows (mainMod + [0-9])
 for i = 1, 10 do
@@ -116,3 +112,32 @@ hl.bind("switch:on:Lid Switch", hl.dsp.exec_cmd("hyprlock"), { locked = true })
 -- Misc
 hl.bind("F8", hl.dsp.exec_cmd(network))
 hl.bind("num_lock", hl.dsp.exec_cmd("~/.scripts/numLock.sh"))
+
+
+-- Magnifier Zoom
+local MAX_ZOOM = 3
+local MIN_ZOOM = 1
+local ZOOM_TOGGLE_FACTOR = 1.5
+
+---@param offset number
+---@return nil
+local function zoom(offset)
+	local current = hl.get_config("cursor.zoom_factor")
+	if offset ~= nil then
+		current = current + offset
+	elseif current ~= MIN_ZOOM then
+		current = MIN_ZOOM
+	else
+		current = ZOOM_TOGGLE_FACTOR
+	end
+	current = math.max(MIN_ZOOM, math.min(MAX_ZOOM, current))
+	hl.config({ cursor = { zoom_factor = current } })
+end
+
+hl.bind("SUPER + Z", zoom)
+hl.bind("SUPER + KP_ADD", function()
+	zoom(0.7)
+end)
+hl.bind("SUPER + minus", function()
+	zoom(-0.7)
+end)

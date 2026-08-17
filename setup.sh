@@ -50,5 +50,5 @@ if ! command -v yay > /dev/null; then
 	gum confirm "Install yay AUR helper?" && install_yay
 fi
 
-gum confirm "continue" && nvim ~/setup.sh
+gum confirm "continue" && nvim $0
 

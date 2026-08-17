@@ -12,7 +12,7 @@ fi
 export ZSH="$HOME/.oh-my-zsh"
 
 # export PATH="/home/$USER/anaconda3/bin/:$PATH"
-bindkey -s '^[g' "bash ~/.config/scripts/gitacp.sh^M"
+# bindkey -s '^[g' "bash ~/.config/scripts/gitacp.sh^M"
 bindkey -s '^[u' "bash ~/.config/scripts/update.sh^M"
 bindkey -s '^[b' "systemctl --user restart pipewire pipewire-pulse wireplumber"
 
@@ -114,7 +114,5 @@ export PATH="$PATH:$HOME/.cargo/bin/"
 export PATH="$PATH:/usr/lib/emscripten/"
 export CLASSPATH=/usr/share/java/mariadb-jdbc/mariadb-java-client.jar:.
 
-
 export PATH="/home/notarkhit/.local/bin:$PATH"
-
 

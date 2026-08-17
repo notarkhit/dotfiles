@@ -55,6 +55,11 @@ require("modules.input")
 
 require("modules.keybindings")
 
+----------------------------
+---- layout keybindings ----
+----------------------------
+require("modules.layoutbinds")
+
 ----------------
 --- GESTURES ---
 ----------------

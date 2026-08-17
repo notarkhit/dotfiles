@@ -8,7 +8,7 @@ enable_esc_key = true
 [modules]
 left = [ [ "appLauncher", "Workspaces", "WindowTitle" ] ]
 center = [ "Clock" ]
-right = [ ["MediaPlayer"], ["Privacy"], ["Tray"], ["SystemInfo"], [ "" ] ]
+right = [ ["MediaPlayer"], ["Privacy"], ["Tray"], ["SystemInfo"], [ "Settings" ] ]
 
 
 [updates]

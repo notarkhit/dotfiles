@@ -97,15 +97,15 @@ hl.window_rule({
 	match   = { title = ".*Figma.*" },
 	opacity = "1 override",
 })
--- Center all floating windows
+
+-- meet
 hl.window_rule({
-	name      = "centerfloating",
-	match     = { float = true },
-	center    = true,
-	animation = "slide",
-	max_size  = { "monitor_w*0.8", "monitor_h*0.8" },
-	-- min_size  = { "monitor_w*0.5", "monitor_h*0.5" },
+	name    = "meet",
+	match   = { title = "Meet.*" },
+	opacity = "1 override",
 })
+
+
 
 -- Ueberzug
 hl.window_rule({
@@ -122,7 +122,7 @@ hl.window_rule({
 	name  = "Picture-in-Picture",
 	match = { title = "^(.*Picture-in-Picture.*)$" },
 	float = true,
-	size  = { "monitor_w*0.3", "monitor_h*0.3" },
+	size  = { "monitor_w*0.3", "monitor_h*0.4" },
 	move  = { "monitor_w*0.7", "monitor_h*0" },
 	pin   = true,
 })
@@ -158,5 +158,4 @@ hl.window_rule({ match = { title = "^(presenterm.*)$" }, opaque = true })
 hl.window_rule({ match = { class = "floorp" }, opaque = true })
 hl.window_rule({ match = { class = "^(Gimp.*)$" }, opaque = true })
 hl.window_rule({ match = { class = "^(.*Inkscape)$" }, opaque = true })
-hl.window_rule({ match = { class = "^(neutralino-.*)$" }, opaque = true })
 hl.window_rule({ match = { class = "mpv" }, opaque = true })
